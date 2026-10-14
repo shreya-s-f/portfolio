@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya Suresh Fakirapur | Full-Stack Developer & Information Science Engineer</title>
+  <meta name="description" content="Portfolio of Shreya Suresh Fakirapur - Information Science & Engineering graduate (B.E.), Full-Stack Developer, and AI enthusiast building creative, real-world solutions.">
+  <meta name="keywords" content="Shreya Suresh Fakirapur, Shreya Fakirapur, Portfolio, Full-Stack Developer, Information Science, React, JavaScript, PHP, MySQL, Python, Bagalkot">
+  <meta name="author" content="Shreya Suresh Fakirapur">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Shreya Suresh Fakirapur | Developer Portfolio">
+  <meta property="og:description" content="Explore real-world projects, skills, certifications, and interactive dev console by Shreya Fakirapur.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/images/profile.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon2.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Interactive Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Animated Particle Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Floating Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-badge">SF</div>
+        <span>Shreya<span style="color:var(--primary)">.</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Sound FX Toggle -->
+        <button id="sound-toggle" class="icon-btn" title="Toggle Sound FX">
+          <i class="fas fa-volume-up"></i>
+        </button>
+
+        <!-- Theme Accent Switcher -->
+        <button id="theme-toggle" class="icon-btn" title="Cycle Theme Glow">
+          <i class="fas fa-palette"></i>
+        </button>
+
+        <!-- Resume Modal Trigger -->
+        <button class="icon-btn open-resume-btn" title="View Resume">
+          <i class="fas fa-file-invoice"></i>
+        </button>
+
+        <!-- Contact CTA -->
+        <a href="#contact" class="nav-cta">
+          <span>Let's Talk</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-status-pill">
+            <span class="pulse-dot"></span>
+            <span>Open to Software Engineering Opportunities</span>
+          </div>
+
+          <p class="hero-greeting">✦ Engineering Ideas Into Reality ✦</p>
+          <h1 class="hero-name">
+            <span class="gradient-text">Shreya Suresh Fakirapur</span>
+          </h1>
+
+          <div class="hero-typing-wrapper">
+            <span class="typing-prefix">></span>
+            <span id="typing-text"></span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <p class="hero-description">
+            Enthusiastic Information Science &amp; Engineering graduate (B.E.) with a strong foundation in programming, software development fundamentals, data structures, algorithms, and full-stack web engineering. Dedicated to crafting clean, high-performance, and impactful digital experiences.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn-primary">
+              <i class="fas fa-rocket"></i>
+              <span>Explore My Work</span>
+            </a>
+            <button class="btn-secondary open-resume-btn">
+              <i class="fas fa-file-pdf"></i>
+              <span>View Resume</span>
+            </button>
+            <a href="https://wa.me/919743994384?text=Hi%20Shreya!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              <span>Let's Chat</span>
+            </a>
+          </div>
+
+          <div class="hero-social-links">
+            <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="social-circle" title="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="social-circle" title="LinkedIn Profile">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/919743994384?text=Hi%20Shreya!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="social-circle" title="WhatsApp Chat">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:shreyf14@gmail.com" class="social-circle" title="Email Shreya">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/shre_154/?hl=en" target="_blank" rel="noopener noreferrer" class="social-circle" title="Instagram Profile">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Avatar Column with Orbit Badges -->
+        <div class="hero-visual">
+          <div class="avatar-wrapper" data-tilt>
+            <div class="avatar-glow-ring"></div>
+            <div class="avatar-orbit"></div>
+
+            <div class="avatar-image-container">
+              <img src="assets/images/profile.jpg" alt="Shreya Suresh Fakirapur" class="avatar-img">
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-1">
+              <i class="fas fa-graduation-cap"></i>
+              <span>CGPA: 8.95 / 10</span>
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fas fa-code"></i>
+              <span>Full-Stack Developer</span>
+            </div>
+            <div class="floating-badge badge-3">
+              <i class="fas fa-university"></i>
+              <span>BEC Bagalkot (ISE)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS METRICS STRIP -->
+    <div class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat-card" data-tilt>
+          <div class="stat-number" data-target="8.95" data-decimal="true">0</div>
+          <div class="stat-label">B.E. ISE CGPA (BEC)</div>
+        </div>
+        <div class="stat-card" data-tilt>
+          <div class="stat-number" data-target="7" data-suffix="+">0</div>
+          <div class="stat-label">Featured Projects</div>
+        </div>
+        <div class="stat-card" data-tilt>
+          <div class="stat-number" data-target="15" data-suffix="+">0</div>
+          <div class="stat-label">Core Tech & Tools</div>
+        </div>
+        <div class="stat-card" data-tilt>
+          <div class="stat-number" data-target="100" data-suffix="%">0</div>
+          <div class="stat-label">Dedication to Quality</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION & DEV TERMINAL -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-user-astronaut"></i>
+            <span>Professional Profile</span>
+          </div>
+          <h2 class="section-title">Behind the Code</h2>
+          <p class="section-subtitle">A quick learner, problem solver, and tech enthusiast translating conceptual ideas into robust software.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card" data-tilt>
+            <h3 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 16px; color: #fff;">
+              Developer • Problem Solver • Tech Innovator
+            </h3>
+            <p>
+              I am an <b>Information Science &amp; Engineering graduate (B.E.)</b> from <b>Basaveshwar Engineering College (BEC), Bagalkot</b> with an outstanding academic record (<b>CGPA: 8.95 / 10</b>).
+            </p>
+            <p>
+              My technical expertise spans frontend engineering in <b>HTML5, CSS3, JavaScript, and React.js</b>, robust backend systems with <b>PHP, MySQL, and Supabase</b>, and foundational strengths in <b>Data Structures, Algorithms, Object-Oriented Programming (OOP), and DBMS</b>.
+            </p>
+            <p>
+              I take pride in writing clean, scalable code and delivering intuitive user experiences. Beyond academic excellence, I have proven my grit in high-intensity 24-hour hackathons, volunteered in college IEEE technical fests, and built real-world full-stack platforms.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="highlight-text">
+                  <h4>Degree</h4>
+                  <span>B.E. in ISE (8.95 CGPA)</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="highlight-text">
+                  <h4>Location</h4>
+                  <span>Bagalkot, Karnataka, India</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="highlight-text">
+                  <h4>Specialization</h4>
+                  <span>Full-Stack &amp; Web Systems</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-language"></i></div>
+                <div class="highlight-text">
+                  <h4>Languages</h4>
+                  <span>Kannada, English, Hindi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Terminal Window -->
+          <div class="terminal-window" data-tilt>
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">shreya@fakirapur-dev ~ zsh</div>
+              <div style="font-size: 0.75rem; color: #64748b;"><i class="fas fa-shield-alt"></i> interactive</div>
+            </div>
+
+            <div class="terminal-body" id="terminal-body">
+              <div class="term-line">
+                <span class="term-prompt">shreya@terminal:~$</span>
+                <span class="term-command">welcome</span>
+              </div>
+              <div class="term-output">
+                ⚡ Welcome to Shreya Fakirapur's interactive developer terminal!<br>
+                Type a command or click a chip below to explore my background dynamically.
+              </div>
+            </div>
+
+            <div style="padding: 14px 22px; background: #0c1020; border-top: 1px solid rgba(255,255,255,0.06);">
+              <div class="term-input-row">
+                <span class="term-prompt">shreya@terminal:~$</span>
+                <input type="text" id="terminal-input" class="term-input" placeholder="type 'help', 'skills', 'projects', 'sudo hire'..." autocomplete="off">
+              </div>
+
+              <div class="term-hints">
+                <span class="term-chip" data-cmd="about">about</span>
+                <span class="term-chip" data-cmd="skills">skills</span>
+                <span class="term-chip" data-cmd="projects">projects</span>
+                <span class="term-chip" data-cmd="education">education</span>
+                <span class="term-chip" data-cmd="achievements">achievements</span>
+                <span class="term-chip" data-cmd="resume">resume</span>
+                <span class="term-chip" data-cmd="sudo hire">sudo hire 🚀</span>
+                <span class="term-chip" data-cmd="clear">clear</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-layer-group"></i>
+            <span>Capabilities & Stack</span>
+          </div>
+          <h2 class="section-title">My Tech Universe</h2>
+          <p class="section-subtitle">Core competencies across frontend development, database systems, foundational computer science, and modern development tools.</p>
+        </div>
+
+        <div class="skills-category-grid">
+          <!-- 1. Frontend Development -->
+          <div class="skill-category-card" data-tilt>
+            <div class="cat-header">
+              <div class="cat-icon-circle cat-icon-purple">
+                <i class="fab fa-react"></i>
+              </div>
+              <h3 class="cat-title">Frontend Engineering</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">HTML5 &amp; CSS3</span>
+                  <div class="skill-meta-txt">
+                    <span>90%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-green" style="width: 90%;"></div>
+                </div>
+                <span class="skill-level-tag">Expert</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">JavaScript (ES6+)</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-yellow" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">React.js</span>
+                  <div class="skill-meta-txt">
+                    <span>80%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-cyan" style="width: 80%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Responsive UI &amp; Leaflet.js</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-purple" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Backend & Databases -->
+          <div class="skill-category-card" data-tilt>
+            <div class="cat-header">
+              <div class="cat-icon-circle cat-icon-green">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="cat-title">Backend &amp; Databases</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">MySQL (Normalized Schemas)</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-orange" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">MongoDB</span>
+                  <div class="skill-meta-txt">
+                    <span>70%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-green" style="width: 70%;"></div>
+                </div>
+                <span class="skill-level-tag">Intermediate</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">PHP Backend Logic</span>
+                  <div class="skill-meta-txt">
+                    <span>75%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-purple" style="width: 75%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Supabase (Auth &amp; Real-time DB)</span>
+                  <div class="skill-meta-txt">
+                    <span>80%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-cyan" style="width: 80%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Tools & Platforms -->
+          <div class="skill-category-card" data-tilt>
+            <div class="cat-header">
+              <div class="cat-icon-circle cat-icon-orange">
+                <i class="fas fa-screwdriver-wrench"></i>
+              </div>
+              <h3 class="cat-title">Tools &amp; Platforms</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Git &amp; GitHub</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-green" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">VS Code Studio</span>
+                  <div class="skill-meta-txt">
+                    <span>90%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-purple" style="width: 90%;"></div>
+                </div>
+                <span class="skill-level-tag">Expert</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Apache (XAMPP Server)</span>
+                  <div class="skill-meta-txt">
+                    <span>75%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-orange" style="width: 75%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">AI APIs (Google Gemini)</span>
+                  <div class="skill-meta-txt">
+                    <span>80%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-cyan" style="width: 80%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Core CS Fundamentals -->
+          <div class="skill-category-card" data-tilt>
+            <div class="cat-header">
+              <div class="cat-icon-circle cat-icon-pink">
+                <i class="fas fa-brain"></i>
+              </div>
+              <h3 class="cat-title">Core Fundamentals</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Object-Oriented Programming (OOP)</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-purple" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Data Structures &amp; Algorithms</span>
+                  <div class="skill-meta-txt">
+                    <span>75%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-cyan" style="width: 75%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Database Management (DBMS)</span>
+                  <div class="skill-meta-txt">
+                    <span>85%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-green" style="width: 85%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-name-txt">Operating Systems &amp; Software Design</span>
+                  <div class="skill-meta-txt">
+                    <span>75%</span>
+                    <i class="fas fa-arrow-trend-up skill-trend-icon"></i>
+                  </div>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill fill-orange" style="width: 75%;"></div>
+                </div>
+                <span class="skill-level-tag">Proficient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-folder-open"></i>
+            <span>Engineering Portfolio</span>
+          </div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Real-world applications engineered by Shreya with purposeful architecture, responsive layouts, and modern technologies.</p>
+        </div>
+
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="ai">AI &amp; Full-Stack</button>
+          <button class="filter-btn" data-filter="web">Web Applications</button>
+          <button class="filter-btn" data-filter="security">Security &amp; Civic Tech</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- 1. StudyClub -->
+          <div class="project-card" data-category="ai web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/StudyClub_ Your All-in-One Study Companion.png" alt="StudyClub Platform" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-star"></i> Featured Full-Stack
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(167, 107, 246, 0.15); border-color: rgba(167, 107, 246, 0.35); color: #a78bfa;">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  StudyClub Platform
+                </h3>
+              </div>
+              <p class="project-desc">
+                Full-stack collaborative learning platform enabling students to study together in distraction-free shared online rooms. Integrated Supabase for real-time sync, auth, and session tracking, plus Google Gemini AI for smart flashcards and quizzes.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">React.js</span>
+                <span class="project-tag">Supabase</span>
+                <span class="project-tag">Google Gemini AI</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">HTML5 / CSS3</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="studyclub">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/StudyClub" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Food Wastage Management System -->
+          <div class="project-card" data-category="web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/Food Waste Management System in Action.png" alt="Food Wastage Management System" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-seedling"></i> Social Impact
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.35); color: #22c55e;">
+                  <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  Food Wastage Management
+                </h3>
+              </div>
+              <p class="project-desc">
+                Full-stack web application designed to connect excess food donors (event halls, restaurants) with verified shelter homes and NGOs. Features secure multi-role auth, normalized MySQL inventory tables, and pickup coordination.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML5</span>
+                <span class="project-tag">CSS3</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">XAMPP</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="foodwaste">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/Food-Wastage-Management-System" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Smart Public Transport Tracker -->
+          <div class="project-card" data-category="web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/Smart Transit Tracker at Sunrise.png" alt="Smart Public Transport Tracker" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-bus"></i> Transit &amp; Geo
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #06b6d4;">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  Smart Public Transport Tracker
+                </h3>
+              </div>
+              <p class="project-desc">
+                Responsive interactive geolocation application simulating real-time public transit tracking across 8 major Indian cities with live route maps, delay analytics, and paperless e-ticketing checkout flow using Leaflet.js.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML5 / CSS3</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Leaflet.js</span>
+                <span class="project-tag">GeoJSON</span>
+                <span class="project-tag">Analytics</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="transit">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/smart-public-transport-tracker" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. CodeVision.ai -->
+          <div class="project-card" data-category="ai" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/CodeVision.ai AI Review Workspace.png" alt="CodeVision.ai Assistant" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-robot"></i> Academic Project
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(52, 211, 153, 0.15); border-color: rgba(52, 211, 153, 0.35); color: #34d399;">
+                  <i class="fas fa-code-compare"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  CodeVision.ai Assistant
+                </h3>
+              </div>
+              <p class="project-desc">
+                Intelligent AI Code Review Assistant developed at Basaveshwar Engineering College Bagalkot, Dept. of ISE (Project 22UIS717P). Automates syntax analysis, bug discovery, security vulnerability checks, and optimization tips.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">React.js</span>
+                <span class="project-tag">AI API</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">AST Analysis</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="codevision">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/codevision-ai" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. UPI Scam Alert -->
+          <div class="project-card" data-category="security web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/UPI Scam Alert_ Stay Safe Online.png" alt="UPI Scam Alert Sentinel" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-globe"></i> Live on Vercel
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(244, 114, 182, 0.15); border-color: rgba(244, 114, 182, 0.35); color: #f472b6;">
+                  <i class="fas fa-shield-halved"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  UPI Scam Alert Sentinel
+                </h3>
+              </div>
+              <p class="project-desc">
+                Web-based cybersecurity protection project designed to identify deceptive UPI handles, suspicious QR codes, and malicious payment pull requests to protect everyday digital payment users.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">HTML5 / CSS3</span>
+                <span class="project-tag">Vercel</span>
+                <span class="project-tag">Cybersecurity</span>
+                <span class="project-tag">Fraud Detection</span>
+              </div>
+              <div class="project-links">
+                <a href="https://upi-scam-alert.vercel.app" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-details" style="background: rgba(6, 182, 212, 0.2); border-color: rgba(6, 182, 212, 0.4); color: #38bdf8;">
+                  <i class="fas fa-external-link-alt"></i> Live Demo
+                </a>
+                <a href="https://github.com/shreya-s-f/upi-scam-alert" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. JAN-SETU -->
+          <div class="project-card" data-category="security web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/Jan-Setu_ Building Better Cities Together.png" alt="JAN-SETU Platform" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-city"></i> Smart Governance
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #f59e0b;">
+                  <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  JAN-SETU Civic Platform
+                </h3>
+              </div>
+              <p class="project-desc">
+                "Your Voice. Your City. Your JanSetu." Smart civic issue reporting, tracking &amp; verification platform empowering urban residents to report local municipal issues with geotagging and crowd-sourced verification.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML5</span>
+                <span class="project-tag">CSS3</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Leaflet.js</span>
+                <span class="project-tag">Smart Cities</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="jansetu">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/JAN-SETU" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Rise Association Portal -->
+          <div class="project-card" data-category="web" data-tilt>
+            <div class="project-banner">
+              <img src="project-images/Rise Together Student Portal.png" alt="Rise Association Portal" class="project-thumbnail-img">
+              <div class="project-badge-top">
+                <i class="fas fa-users-gear"></i> Association Portal
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-card-header">
+                <div class="project-card-icon" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.35); color: #a855f7;">
+                  <i class="fas fa-building-columns"></i>
+                </div>
+                <h3 class="project-title" style="margin-bottom: 0;">
+                  Rise Association Portal
+                </h3>
+              </div>
+              <p class="project-desc">
+                Centralized web-based association management portal engineered to centralize departmental circulars, member directories, notices, and activity management among students and committee members.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">React.js</span>
+                <span class="project-tag">Modern UI</span>
+                <span class="project-tag">State Mgmt</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="proj-btn proj-btn-details" data-project="riseportal">
+                  <i class="fas fa-circle-info"></i> Details
+                </a>
+                <a href="https://github.com/shreya-s-f/Rise-association-portal" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View More on GitHub CTA -->
+        <div class="view-more-github-wrap">
+          <a href="https://github.com/shreya-s-f?tab=repositories" target="_blank" rel="noopener noreferrer" class="view-more-github-btn">
+            <i class="fab fa-github"></i>
+            <span>Explore All Repositories on GitHub</span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP & INDUSTRY EXPERIENCE SECTION -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-briefcase"></i>
+            <span>Practical Experience</span>
+          </div>
+          <h2 class="section-title">Internship &amp; Industry Exposure</h2>
+          <p class="section-subtitle">Real-world engineering contributions, verified credentials, and software tasks accomplished during internship.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px;">
+          <!-- Offer Letter Card -->
+          <div class="intern-doc-card" data-tilt>
+            <div class="intern-doc-thumb-wrap" data-lightbox-src="assets/images/offer-letter.png" data-lightbox-caption="Web Development Internship Offer Letter - YBI Foundation">
+              <img src="assets/images/offer-letter.png" alt="Internship Offer Letter" class="intern-doc-thumb">
+              <div class="intern-doc-preview-badge">
+                <i class="fas fa-search-plus"></i> View Full
+              </div>
+            </div>
+            <div class="intern-doc-info">
+              <div class="intern-doc-header">
+                <div class="intern-doc-icon-badge badge-offer">
+                  <i class="fas fa-scroll"></i>
+                </div>
+                <h3 class="intern-doc-title">Internship Offer Letter</h3>
+              </div>
+              <p class="intern-doc-desc">
+                Selected as Web Development Intern at <b>YBI Foundation</b>, focusing on frontend and full-stack software development with HTML, CSS, JavaScript.
+              </p>
+              <div class="intern-doc-pill pill-calendar">
+                <i class="far fa-calendar-alt"></i> Verified Document
+              </div>
+            </div>
+          </div>
+
+          <!-- Completion Certificate Card -->
+          <div class="intern-doc-card" data-tilt>
+            <div class="intern-doc-thumb-wrap" data-lightbox-src="assets/images/completion-cert.png" data-lightbox-caption="Web Development Internship Completion Certificate - YBI Foundation">
+              <img src="assets/images/completion-cert.png" alt="Internship Completion Certificate" class="intern-doc-thumb">
+              <div class="intern-doc-preview-badge">
+                <i class="fas fa-search-plus"></i> View Full
+              </div>
+            </div>
+            <div class="intern-doc-info">
+              <div class="intern-doc-header">
+                <div class="intern-doc-icon-badge badge-complete">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="intern-doc-title">Internship Completion</h3>
+              </div>
+              <p class="intern-doc-desc">
+                Successfully completed Web Development Internship program, demonstrating proficiency in web architecture, responsive layouts, and modern scripting.
+              </p>
+              <div class="intern-doc-pill pill-projects-count">
+                <i class="fas fa-award"></i> 4 Projects Completed
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Internship Tasks Sub-section -->
+        <div class="intern-tasks-section">
+          <h3 class="intern-tasks-title">
+            <div class="intern-tasks-icon"><i class="fas fa-list-check"></i></div>
+            <span>Internship Tasks &amp; Deliverables</span>
+          </h3>
+
+          <div class="intern-tasks-grid">
+            <!-- 1. Simple Calculator -->
+            <div class="intern-task-card" data-tilt>
+              <div class="intern-task-header">
+                <div class="intern-task-icon-box"><i class="fas fa-calculator"></i></div>
+                <h4 class="intern-task-title">Simple Calculator</h4>
+              </div>
+              <p class="intern-task-desc">Interactive arithmetic calculation engine with error validation and keyboard inputs.</p>
+              <div class="intern-task-tags">
+                <span class="intern-task-tag">HTML</span>
+                <span class="intern-task-tag">CSS</span>
+                <span class="intern-task-tag">JavaScript</span>
+              </div>
+              <div class="intern-task-btns">
+                <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="intern-btn-code">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. eCommerce Website -->
+            <div class="intern-task-card" data-tilt>
+              <div class="intern-task-header">
+                <div class="intern-task-icon-box"><i class="fas fa-cart-shopping"></i></div>
+                <h4 class="intern-task-title">eCommerce Interface</h4>
+              </div>
+              <p class="intern-task-desc">Responsive storefront layout featuring product catalogs, cart state management, and price tallies.</p>
+              <div class="intern-task-tags">
+                <span class="intern-task-tag">HTML</span>
+                <span class="intern-task-tag">CSS</span>
+                <span class="intern-task-tag">JavaScript</span>
+              </div>
+              <div class="intern-task-btns">
+                <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="intern-btn-code">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. ToDo List -->
+            <div class="intern-task-card" data-tilt>
+              <div class="intern-task-header">
+                <div class="intern-task-icon-box"><i class="fas fa-check-double"></i></div>
+                <h4 class="intern-task-title">ToDo Task Manager</h4>
+              </div>
+              <p class="intern-task-desc">Productivity task management application with localStorage persistence, filter categories, and status toggles.</p>
+              <div class="intern-task-tags">
+                <span class="intern-task-tag">HTML</span>
+                <span class="intern-task-tag">CSS</span>
+                <span class="intern-task-tag">JavaScript</span>
+              </div>
+              <div class="intern-task-btns">
+                <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="intern-btn-code">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Connect Four Game -->
+            <div class="intern-task-card" data-tilt>
+              <div class="intern-task-header">
+                <div class="intern-task-icon-box"><i class="fas fa-gamepad"></i></div>
+                <h4 class="intern-task-title">Connect Four Game</h4>
+              </div>
+              <p class="intern-task-desc">Browser game built with matrix array logic to detect four-in-a-row diagonal, vertical, and horizontal wins.</p>
+              <div class="intern-task-tags">
+                <span class="intern-task-tag">HTML</span>
+                <span class="intern-task-tag">CSS</span>
+                <span class="intern-task-tag">JavaScript</span>
+              </div>
+              <div class="intern-task-btns">
+                <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="intern-btn-code">
+                  <i class="fab fa-github"></i> Repository
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academic Milestones</span>
+          </div>
+          <h2 class="section-title">Education &amp; Background</h2>
+          <p class="section-subtitle">Consistent academic distinction and strong foundations in science and engineering.</p>
+        </div>
+
+        <div class="timeline">
+          <!-- B.E. Degree -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card" data-tilt>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <span class="timeline-date">Basaveshwar Engineering College, Bagalkot</span>
+                <span class="edu-score-badge"><i class="fas fa-star"></i> CGPA: 8.95 / 10</span>
+              </div>
+              <h3 class="timeline-title">B.E. in Information Science &amp; Engineering</h3>
+              <div class="edu-school"><i class="fas fa-university"></i> Basaveshwar Engineering College (BEC), Bagalkot</div>
+              <p>
+                Comprehensive curriculum covering Data Structures, Algorithms, Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems, Software Engineering, and Computer Networks.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pre-University (PUC) -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card" data-tilt>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <span class="timeline-date">SRA Composite PU College, Banahatti</span>
+                <span class="edu-score-badge"><i class="fas fa-award"></i> Percentage: 90.16%</span>
+              </div>
+              <h3 class="timeline-title">Pre-University (PCMB)</h3>
+              <div class="edu-school"><i class="fas fa-school"></i> SRA Composite PU College, Banahatti</div>
+              <p>
+                Physics, Chemistry, Mathematics, and Biology (PCMB). Graduated with distinction, securing 90.16% aggregate with strong analytical and mathematical problem-solving fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <!-- SSLC -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card" data-tilt>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <span class="timeline-date">SRA Composite Junior College, Banahatti</span>
+                <span class="edu-score-badge"><i class="fas fa-trophy"></i> Percentage: 93.44%</span>
+              </div>
+              <h3 class="timeline-title">Secondary School Leaving Certificate (SSLC)</h3>
+              <div class="edu-school"><i class="fas fa-school"></i> SRA Composite Junior College, Banahatti</div>
+              <p>
+                Secured an exceptional 93.44% score, showcasing sustained discipline, academic excellence, and active involvement in school science and cultural activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & CERTIFICATIONS SECTION -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-trophy"></i>
+            <span>Honors &amp; Hackathons</span>
+          </div>
+          <h2 class="section-title">Achievements &amp; Activities</h2>
+          <p class="section-subtitle">National-level hackathon sprints, leadership volunteering, and competitive technical recognitions.</p>
+        </div>
+
+        <div class="achieve-grid">
+          <!-- WAVE 3.0 -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-icon-wrap" style="background: rgba(167, 107, 246, 0.15); color: var(--primary);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>WAVE 3.0 National Hackathon</h3>
+            <div class="achieve-venue"><i class="fas fa-map-pin"></i> BEC Bagalkot • March 2026</div>
+            <p class="achieve-desc">
+              Competed in an intensive 24-hour National-Level Hackathon, rapidly prototyping and pitching practical technological solutions under strict sprint timelines.
+            </p>
+            <span class="achieve-badge">24-Hour National Hackathon</span>
+          </div>
+
+          <!-- Inventra 2K25 -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/inventra.jpeg" data-lightbox-caption="Inventra 2K25 National-Level Hackathon Certificate - KLE Society's College, Chikodi">
+              <img src="achievements/inventra.jpeg" alt="Inventra 2K25 Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>Inventra 2K25 National Hackathon</h3>
+            <div class="achieve-venue"><i class="fas fa-map-pin"></i> KLE Society's College, Chikodi • 2025</div>
+            <p class="achieve-desc">
+              Selected for the prestigious Inventra 2K25 National-Level Hackathon for innovative problem-solving and full-stack software prototype feasibility.
+            </p>
+            <span class="achieve-badge">National Selection</span>
+          </div>
+
+          <!-- EKAIVA & Agamya Tech Summit -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/SDM hackathon.jpeg" data-lightbox-caption="EKAIVA 8-Hour Hackathon & Agamya Tech Summit 2025 - SDMCET Dharwad">
+              <img src="achievements/SDM hackathon.jpeg" alt="SDM Hackathon Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>EKAIVA &amp; Agamya Tech Summit</h3>
+            <div class="achieve-venue"><i class="fas fa-map-pin"></i> SDMCET Dharwad • 2025</div>
+            <p class="achieve-desc">
+              Competed in EKAIVA 8-hour Hackathon 2025 and Agamya Tech Summit 2025, solving algorithmic challenges and engineering fast full-stack prototypes.
+            </p>
+            <span class="achieve-badge">8-Hour Hackathon</span>
+          </div>
+
+          <!-- BEC-IEEE Volunteer -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: var(--success);">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>BEC-IEEE Technical Events Volunteer</h3>
+            <div class="achieve-venue"><i class="fas fa-users"></i> BEC IEEE Chapter • April - Dec 2025</div>
+            <p class="achieve-desc">
+              Organized and managed multiple college technical fests, workshops, coding competitions, and speaker sessions for the IEEE student branch community.
+            </p>
+            <span class="achieve-badge">Leadership &amp; Community</span>
+          </div>
+
+          <!-- Cognizant Hackathon -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/cognizant hackathon.jpeg" data-lightbox-caption="Cognizant Hackathon Participation">
+              <img src="achievements/cognizant hackathon.jpeg" alt="Cognizant Hackathon">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>Cognizant Hackathon</h3>
+            <div class="achieve-venue"><i class="fas fa-code"></i> Competitive Coding Sprint</div>
+            <p class="achieve-desc">
+              Demonstrated agile problem solving and technical implementation in corporate-sponsored competitive hackathon.
+            </p>
+            <span class="achieve-badge">Competitive Sprint</span>
+          </div>
+
+          <!-- Class Representative Leadership -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/class representative.jpeg" data-lightbox-caption="Class Representative Leadership Recognition">
+              <img src="achievements/class representative.jpeg" alt="Class Representative">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>Class Representative &amp; Leadership</h3>
+            <div class="achieve-venue"><i class="fas fa-user-tie"></i> Basaveshwar Engineering College ISE</div>
+            <p class="achieve-desc">
+              Elected Class Representative, facilitating seamless communication between faculty, department administration, and engineering peers.
+            </p>
+            <span class="achieve-badge">Student Leadership</span>
+          </div>
+
+          <!-- NariYukti Infosys -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/nariyukti infosys.png" data-lightbox-caption="NariYukti Technical Event by Infosys">
+              <img src="achievements/nariyukti infosys.png" alt="NariYukti Infosys">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>NariYukti Technical Event</h3>
+            <div class="achieve-venue"><i class="fas fa-laptop-code"></i> Infosys Springboard Initiative</div>
+            <p class="achieve-desc">
+              Participated in woman-in-tech initiative fostering advanced programming competencies and tech leadership.
+            </p>
+            <span class="achieve-badge">Women in Tech</span>
+          </div>
+
+          <!-- Technical Paper Presentation -->
+          <div class="achieve-card" data-tilt>
+            <div class="achieve-thumb-preview" data-lightbox-src="achievements/paper presentation.jpeg" data-lightbox-caption="Technical Paper Presentation Certificate">
+              <img src="achievements/paper presentation.jpeg" alt="Paper Presentation">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Certificate</div>
+            </div>
+            <h3>Technical Paper Presentation</h3>
+            <div class="achieve-venue"><i class="fas fa-file-lines"></i> State-Level Technical Symposium</div>
+            <p class="achieve-desc">
+              Researched, authored, and presented technical paper on emerging computational architectures with high clarity and depth.
+            </p>
+            <span class="achieve-badge">Research &amp; Presentation</span>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS GRID -->
+        <div class="section-header" style="margin-bottom: 40px; margin-top: 50px;">
+          <h3 style="font-size: 2rem; font-weight: 800; color: #fff;">Verified Certifications</h3>
+          <p class="section-subtitle">Rigorous certifications completed across premier academic institutes and industry organizations.</p>
+        </div>
+
+        <div class="certs-grid">
+          <!-- ZSkillUp -->
+          <div class="cert-card" data-tilt>
+            <div class="cert-thumb-preview" data-lightbox-src="certificates/zskillup aptitude certificate.jpeg" data-lightbox-caption="Quantitative Aptitude and Professional Skills — ZSkillUp (Feb 2026)">
+              <img src="certificates/zskillup aptitude certificate.jpeg" alt="ZSkillUp Aptitude Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Credential</div>
+            </div>
+            <div class="cert-issuer-row">
+              <span class="cert-issuer">ZSkillUp</span>
+              <span class="cert-date">February 2026</span>
+            </div>
+            <h4 class="cert-name">Quantitative Aptitude &amp; Professional Skills</h4>
+            <div class="cert-issuer-name">Advanced analytical reasoning, problem solving, and corporate workplace communication.</div>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="cert-link-btn">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <!-- NPTEL IIT Hyderabad -->
+          <div class="cert-card" data-tilt>
+            <div class="cert-thumb-preview" data-lightbox-src="certificates/privacy and security.png" data-lightbox-caption="Privacy and Security in Online Social Media — NPTEL, IIT Hyderabad (Oct 2025)">
+              <img src="certificates/privacy and security.png" alt="NPTEL Privacy and Security Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Credential</div>
+            </div>
+            <div class="cert-issuer-row">
+              <span class="cert-issuer">NPTEL • IIT Hyderabad</span>
+              <span class="cert-date">October 2025</span>
+            </div>
+            <h4 class="cert-name">Privacy &amp; Security in Online Social Media</h4>
+            <div class="cert-issuer-name">Cybersecurity protocols, digital identity protection, graph privacy, and data forensics.</div>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="cert-link-btn">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <!-- NPTEL IIT Madras -->
+          <div class="cert-card" data-tilt>
+            <div class="cert-thumb-preview" data-lightbox-src="certificates/smart cities.png" data-lightbox-caption="Smart Cities — NPTEL, IIT Madras (April 2026)">
+              <img src="certificates/smart cities.png" alt="NPTEL Smart Cities Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Credential</div>
+            </div>
+            <div class="cert-issuer-row">
+              <span class="cert-issuer">NPTEL • IIT Madras</span>
+              <span class="cert-date">April 2026</span>
+            </div>
+            <h4 class="cert-name">Smart Cities — Urban Technological Systems</h4>
+            <div class="cert-issuer-name">Intelligent urban transit, IoT telemetry, civic data infrastructure, and sustainable smart systems.</div>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="cert-link-btn">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <!-- Infosys Springboard -->
+          <div class="cert-card" data-tilt>
+            <div class="cert-thumb-preview" data-lightbox-src="certificates/python fundamentals.jpeg" data-lightbox-caption="Programming Fundamentals using Python — Infosys Springboard (July 2025)">
+              <img src="certificates/python fundamentals.jpeg" alt="Infosys Python Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Credential</div>
+            </div>
+            <div class="cert-issuer-row">
+              <span class="cert-issuer">Infosys Springboard</span>
+              <span class="cert-date">July 2025</span>
+            </div>
+            <h4 class="cert-name">Programming Fundamentals using Python</h4>
+            <div class="cert-issuer-name">Core Python programming, data structures, modular software design, and algorithms.</div>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="cert-link-btn">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <!-- Udemy -->
+          <div class="cert-card" data-tilt>
+            <div class="cert-thumb-preview" data-lightbox-src="certificates/udemy.png" data-lightbox-caption="Web Development & Modern Programming - Udemy">
+              <img src="certificates/udemy.png" alt="Udemy Certificate">
+              <div class="thumb-zoom-overlay"><i class="fas fa-search-plus"></i> View Credential</div>
+            </div>
+            <div class="cert-issuer-row">
+              <span class="cert-issuer">Udemy Academy</span>
+              <span class="cert-date">Certified</span>
+            </div>
+            <h4 class="cert-name">Full-Stack Web Development Mastery</h4>
+            <div class="cert-issuer-name">Hands-on mastery of HTML5, CSS3, JavaScript DOM scripting, and responsive application patterns.</div>
+            <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="cert-link-btn">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <i class="fas fa-paper-plane"></i>
+            <span>Get Connected</span>
+          </div>
+          <h2 class="section-title">Let's Build Together</h2>
+          <p class="section-subtitle">Interested in collaborating, hiring for a software engineering role, or discussing a project? Feel free to reach out directly!</p>
+        </div>
+
+        <div class="lets-build-grid">
+          <!-- Left Column: Send me a message -->
+          <div class="contact-card-modern" data-tilt>
+            <h3 class="card-title-modern">
+              <i class="fas fa-envelope-open-text"></i>
+              <span>Send me a message</span>
+            </h3>
+
+            <div id="form-alert" style="display: none; padding: 12px 18px; border-radius: 12px; margin-bottom: 20px; background: rgba(255,255,255,0.05); font-size: 0.95rem;"></div>
+
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name" class="form-label-with-icon">
+                  <i class="fas fa-user"></i>
+                  <span>Full Name</span>
+                </label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <span>Email Address</span>
+                </label>
+                <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label-with-icon">
+                  <i class="fas fa-comment-dots"></i>
+                  <span>Your Message</span>
+                </label>
+                <textarea id="message" class="form-control" placeholder="Tell me about your project, team opportunity, or inquiry..." required></textarea>
+              </div>
+
+              <!-- Urgent Checkbox -->
+              <label class="urgent-checkbox-wrapper" for="urgent-check">
+                <input type="checkbox" id="urgent-check">
+                <span class="urgent-red-dot"></span>
+                <span class="urgent-label-text">Mark as high priority (I will prioritize your message)</span>
+              </label>
+
+              <button type="submit" class="form-submit-btn">
+                <span>Send Message 🚀</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Right Column: WhatsApp, Contact Info, Follow Me, Status -->
+          <div class="contact-right-stack">
+            <!-- 1. Chat on WhatsApp -->
+            <div class="whatsapp-box-card" data-tilt>
+              <div class="whatsapp-bubble-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h4 class="whatsapp-box-title">Direct WhatsApp Connect</h4>
+              <p class="whatsapp-box-sub">Need a quick response? Message Shreya directly on WhatsApp!</p>
+              <a href="https://wa.me/919743994384?text=Hi%20Shreya!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="whatsapp-btn-chatnow">
+                <i class="fab fa-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- 2. Contact Information 2x2 Grid -->
+            <div class="contact-card-modern" data-tilt>
+              <h4 class="card-title-modern" style="font-size: 1.25rem; margin-bottom: 0;">
+                <i class="fas fa-address-card"></i>
+                <span>Contact Details</span>
+              </h4>
+              <div class="contact-info-grid-2x2">
+                <a href="mailto:shreyf14@gmail.com" class="info-grid-box">
+                  <div class="info-grid-icon icon-blue"><i class="fas fa-envelope"></i></div>
+                  <span class="info-grid-value">shreyf14@gmail.com</span>
+                  <span class="info-grid-label">Personal Email</span>
+                </a>
+                <a href="mailto:2ba22is045@becbgk.edu" class="info-grid-box">
+                  <div class="info-grid-icon icon-purple"><i class="fas fa-graduation-cap"></i></div>
+                  <span class="info-grid-value">2ba22is045@becbgk.edu</span>
+                  <span class="info-grid-label">College Email</span>
+                </a>
+                <a href="tel:+919743994384" class="info-grid-box">
+                  <div class="info-grid-icon icon-green"><i class="fas fa-phone-alt"></i></div>
+                  <span class="info-grid-value">+91 9743994384</span>
+                  <span class="info-grid-label">Phone &amp; WhatsApp</span>
+                </a>
+                <div class="info-grid-box">
+                  <div class="info-grid-icon icon-pink"><i class="fas fa-location-dot"></i></div>
+                  <span class="info-grid-value">Bagalkot, Karnataka</span>
+                  <span class="info-grid-label">Location (India)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Follow Me -->
+            <div class="contact-card-modern" data-tilt>
+              <h4 class="card-title-modern" style="font-size: 1.25rem; margin-bottom: 0;">
+                <i class="fas fa-share-nodes"></i>
+                <span>Online Profiles</span>
+              </h4>
+              <div class="follow-me-pills">
+                <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" rel="noopener noreferrer" class="follow-pill-btn">
+                  <i class="fab fa-linkedin-in" style="color: #0ea5e9;"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/shreya-s-f" target="_blank" rel="noopener noreferrer" class="follow-pill-btn">
+                  <i class="fab fa-github" style="color: #a855f7;"></i>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://wa.me/919743994384?text=Hi%20Shreya!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="follow-pill-btn">
+                  <i class="fab fa-whatsapp" style="color: #22c55e;"></i>
+                  <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/shre_154/?hl=en" target="_blank" rel="noopener noreferrer" class="follow-pill-btn">
+                  <i class="fab fa-instagram" style="color: #ec4899;"></i>
+                  <span>Instagram</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 4. Available for Opportunities -->
+            <div class="available-card" data-tilt>
+              <div class="available-status-row">
+                <span class="pulse-green-dot"></span>
+                <span>Available for Immediate Opportunities</span>
+              </div>
+              <p class="available-sub">Open to software engineer roles, full-stack internships, and collaborative tech projects.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        Crafted with <span style="color:#ec4899;">&hearts;</span> and code by <b>Shreya Suresh Fakirapur</b> • © 2026 All Rights Reserved.
+      </div>
+      <a href="#hero" class="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Connect -->
+  <a href="https://wa.me/919743994384?text=Hi%20Shreya!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="floating-whatsapp-tooltip">Chat with Shreya</span>
+  </a>
+
+  <!-- ===================================================================
+       PROJECT DETAILS MODAL
+       =================================================================== -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button id="project-modal-close" class="modal-close-btn" title="Close Modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <img id="modal-img" src="" alt="Project Preview" class="modal-banner-img">
+
+      <div class="modal-header-info">
+        <div id="modal-badge" class="modal-tag"></div>
+        <h3 id="modal-title" class="modal-title"></h3>
+      </div>
+
+      <p id="modal-desc" class="modal-desc"></p>
+
+      <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px;">
+        <i class="fas fa-sparkles" style="color:var(--primary); margin-right: 6px;"></i> Key Architectural Features:
+      </h4>
+      <ul id="modal-features" class="modal-features-list"></ul>
+
+      <h4 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px;">
+        <i class="fas fa-code" style="color:var(--secondary); margin-right: 6px;"></i> Technologies Used:
+      </h4>
+      <div id="modal-tags" class="modal-tech-stack"></div>
+
+      <div class="modal-actions">
+        <a id="modal-demo" href="#" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-details" style="background: rgba(6, 182, 212, 0.2); border-color: rgba(6, 182, 212, 0.4); color: #38bdf8;">
+          <i class="fas fa-external-link-alt"></i> Live Application Demo
+        </a>
+        <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer" class="proj-btn proj-btn-code">
+          <i class="fab fa-github"></i> View GitHub Repository
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       IMAGE LIGHTBOX MODAL (Certificates & Achievements)
+       =================================================================== -->
+  <div id="lightbox-modal" class="lightbox-backdrop">
+    <button id="lightbox-close" class="modal-close-btn" style="position: fixed; top: 25px; right: 25px;" title="Close Lightbox">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-img" src="" alt="Credential Zoom" class="lightbox-img">
+    </div>
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <!-- ===================================================================
+       RESUME VIEWER MODAL
+       =================================================================== -->
+  <div id="resume-modal" class="modal-backdrop">
+    <div class="modal-dialog resume-modal-dialog">
+      <button id="resume-modal-close" class="modal-close-btn" title="Close Resume Modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.6rem; font-weight: 800; color: #fff;">
+          <i class="fas fa-file-invoice" style="color:var(--primary); margin-right: 10px;"></i>
+          Curriculum Vitae
+        </h3>
+        <button id="print-resume-btn" class="proj-btn proj-btn-details" style="font-size: 0.85rem;">
+          <i class="fas fa-print"></i> Print / Save as PDF
+        </button>
+      </div>
+
+      <div class="resume-preview-sheet">
+        <div class="resume-sheet-header">
+          <div>
+            <div class="resume-sheet-name">SHREYA SURESH FAKIRAPUR</div>
+            <div class="resume-sheet-sub">Information Science &amp; Engineering Graduate (B.E.)</div>
+            <div class="resume-contact-inline">
+              <span><i class="fas fa-map-marker-alt"></i> Bagalkot, Karnataka, India</span>
+              <span><i class="fas fa-phone"></i> +91 9743994384</span>
+              <span><i class="fas fa-envelope"></i> <a href="mailto:shreyf14@gmail.com">shreyf14@gmail.com</a></span>
+              <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank">LinkedIn</a></span>
+              <span><i class="fab fa-github"></i> <a href="https://github.com/shreya-s-f" target="_blank">GitHub</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-section-title">Professional Summary</div>
+        <p>
+          Enthusiastic Information Science Engineering graduate (B.E.) with a strong foundation in programming, software development fundamentals, data structures, algorithms, and object-oriented programming. Passionate about solving real-world problems through technology and continuously learning emerging tools and technologies. A quick learner with strong analytical, problem-solving, communication, and teamwork skills, eager to contribute to innovative software projects while building a successful career as a Software Engineer.
+        </p>
+
+        <div class="resume-section-title">Education</div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">B.E. in Information Science &amp; Engineering</span>
+            <span class="resume-item-badge">CGPA: 8.95 / 10</span>
+          </div>
+          <div class="resume-item-desc">Basaveshwar Engineering College, Bagalkot</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">Pre-University (PCMB)</span>
+            <span class="resume-item-badge">90.16%</span>
+          </div>
+          <div class="resume-item-desc">SRA Composite PU College, Banahatti</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">SSLC</span>
+            <span class="resume-item-badge">93.44%</span>
+          </div>
+          <div class="resume-item-desc">SRA Composite Junior College, Banahatti</div>
+        </div>
+
+        <div class="resume-section-title">Technical Skills</div>
+        <p><b>Frontend:</b> HTML, CSS, JavaScript, React.js</p>
+        <p><b>Backend &amp; Database:</b> MySQL, MongoDB, PHP, Supabase</p>
+        <p><b>Tools &amp; Platforms:</b> Git, GitHub, Apache (XAMPP), VS Code, Leaflet.js</p>
+        <p><b>Core Concepts:</b> Object-Oriented Programming, DBMS, Data Structures, Algorithms</p>
+        <p><b>Soft Skills:</b> Adaptability, Problem Solving, Time Management, Team Collaboration, Communication</p>
+        <p><b>Languages:</b> Kannada, English, Hindi</p>
+
+        <div class="resume-section-title">Key Projects</div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">Food Wastage Management System</span>
+            <span class="resume-item-badge">HTML · CSS · JavaScript · PHP · MySQL</span>
+          </div>
+          <div class="resume-item-desc">Developed a responsive full-stack web platform enabling surplus food donations to reduce wastage. Normalized MySQL schema to coordinate donors, recipients, and inventory records efficiently.</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">StudyClub — Collaborative Study Web Platform</span>
+            <span class="resume-item-badge">React.js · JavaScript · Supabase · Gemini AI · HTML · CSS</span>
+          </div>
+          <div class="resume-item-desc">Built full-stack collaborative platform with real-time shared study rooms, AI-generated flashcards/quizzes via Google Gemini AI, and Pomodoro timer.</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-item-header">
+            <span class="resume-item-title">Smart Public Transport Tracker</span>
+            <span class="resume-item-badge">HTML · CSS · JavaScript · Leaflet.js</span>
+          </div>
+          <div class="resume-item-desc">Built web app simulating public transport across 8 major Indian cities with route analytics, live vector maps, and e-ticketing flow.</div>
+        </div>
+
+        <div class="resume-section-title">Achievements &amp; Certifications</div>
+        <p>• Competed in WAVE 3.0 — 24-hour National-Level Hackathon, BEC Bagalkot (March 2026)</p>
+        <p>• Selected for Inventra 2K25 National-Level Hackathon, KLE Society's College, Chikodi</p>
+        <p>• Competed in EKAIVA 8-hour Hackathon 2025 &amp; Agamya Tech Summit 2025, SDMCET Dharwad</p>
+        <p>• Volunteer, BEC-IEEE Technical Events (April 2025 – December 2025)</p>
+        <p>• Quantitative Aptitude and Professional Skills — ZSkillUp (February 2026)</p>
+        <p>• Privacy and Security in Online Social Media — NPTEL, IIT Hyderabad (October 2025)</p>
+        <p>• Smart Cities — NPTEL, IIT Madras (April 2026)</p>
+        <p>• Programming fundamentals using Python — Infosys Springboard (July 2025)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
