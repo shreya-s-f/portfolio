@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgFood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#052e16"/>
+      <stop offset="50%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#021a0c"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgFood)"/>
+
+  <!-- Mockup Window -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="40" width="700" height="370" rx="16" fill="#042110" stroke="#16a34a" stroke-width="2"/>
+    
+    <!-- Window Bar -->
+    <rect x="50" y="40" width="700" height="44" rx="16" fill="#0a381d"/>
+    <rect x="50" y="68" width="700" height="16" fill="#0a381d"/>
+    <circle cx="80" cy="62" r="6" fill="#ef4444"/>
+    <circle cx="102" cy="62" r="6" fill="#f59e0b"/>
+    <circle cx="124" cy="62" r="6" fill="#10b981"/>
+    
+    <text x="400" y="67" fill="#86efac" font-family="'Fira Code', monospace" font-size="13" text-anchor="middle" font-weight="600">
+      Food Wastage Management • Surplus Redistribution (PHP &amp; MySQL)
+    </text>
+
+    <!-- Top Metrics Row -->
+    <g transform="translate(80, 105)">
+      <rect width="195" height="75" rx="10" fill="#0b4022" stroke="#22c55e" stroke-width="1"/>
+      <text x="20" y="32" fill="#86efac" font-family="'Outfit', sans-serif" font-size="12">Meals Rescued</text>
+      <text x="20" y="60" fill="#ffffff" font-family="'Fira Code', monospace" font-size="22" font-weight="bold">4,820+ kg</text>
+    </g>
+
+    <g transform="translate(300, 105)">
+      <rect width="195" height="75" rx="10" fill="#0b4022" stroke="#22c55e" stroke-width="1"/>
+      <text x="20" y="32" fill="#86efac" font-family="'Outfit', sans-serif" font-size="12">Partner NGOs</text>
+      <text x="20" y="60" fill="#ffffff" font-family="'Fira Code', monospace" font-size="22" font-weight="bold">38 Active</text>
+    </g>
+
+    <g transform="translate(520, 105)">
+      <rect width="200" height="75" rx="10" fill="#0b4022" stroke="#22c55e" stroke-width="1"/>
+      <text x="20" y="32" fill="#86efac" font-family="'Outfit', sans-serif" font-size="12">Communities Fed</text>
+      <text x="20" y="60" fill="#ffffff" font-family="'Fira Code', monospace" font-size="22" font-weight="bold">12,500+</text>
+    </g>
+
+    <!-- Active Donation Dispatch Table -->
+    <g transform="translate(80, 200)">
+      <rect width="640" height="180" rx="12" fill="#052814" stroke="#15803d" stroke-width="1.5"/>
+      <text x="25" y="35" fill="#4ade80" font-family="'Outfit', sans-serif" font-size="15" font-weight="bold">Real-Time Surplus Donation Requests</text>
+
+      <rect x="20" y="55" width="600" height="40" rx="8" fill="#0c4223"/>
+      <text x="35" y="80" fill="#fff" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold">Grand Banquet Hall</text>
+      <text x="220" y="80" fill="#94a3b8" font-family="'Outfit', sans-serif" font-size="12">150 Packaged Meals</text>
+      <text x="420" y="80" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="11">Expires in 2.5 hrs</text>
+      <rect x="525" y="63" width="85" height="24" rx="12" fill="#16a34a"/>
+      <text x="567" y="79" fill="#fff" font-family="'Outfit', sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Dispatched</text>
+
+      <rect x="20" y="105" width="600" height="40" rx="8" fill="#0c4223"/>
+      <text x="35" y="130" fill="#fff" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold">City Bakers Club</text>
+      <text x="220" y="130" fill="#94a3b8" font-family="'Outfit', sans-serif" font-size="12">80 Bread &amp; Pastry packs</text>
+      <text x="420" y="130" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="11">Fresh inventory</text>
+      <rect x="525" y="113" width="85" height="24" rx="12" fill="#f59e0b"/>
+      <text x="567" y="129" fill="#fff" font-family="'Outfit', sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Pending Pickup</text>
+    </g>
+  </g>
+</svg>

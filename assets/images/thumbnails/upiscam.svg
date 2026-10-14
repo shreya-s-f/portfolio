@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgUpi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b071a"/>
+      <stop offset="50%" stop-color="#500724"/>
+      <stop offset="100%" stop-color="#1f030d"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgUpi)"/>
+
+  <!-- Mockup Window -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="40" width="700" height="370" rx="16" fill="#1c0510" stroke="#831843" stroke-width="2"/>
+    
+    <!-- Window Bar -->
+    <rect x="50" y="40" width="700" height="44" rx="16" fill="#310a1c"/>
+    <rect x="50" y="68" width="700" height="16" fill="#310a1c"/>
+    <circle cx="80" cy="62" r="6" fill="#ef4444"/>
+    <circle cx="102" cy="62" r="6" fill="#f59e0b"/>
+    <circle cx="124" cy="62" r="6" fill="#10b981"/>
+    
+    <text x="400" y="67" fill="#f472b6" font-family="'Fira Code', monospace" font-size="13" text-anchor="middle" font-weight="600">
+      UPI Scam Alert • Digital Fraud Shield (Live on Vercel)
+    </text>
+
+    <!-- Radar / Shield Visual Center -->
+    <g transform="translate(180, 230)">
+      <circle cx="0" cy="0" r="100" fill="none" stroke="#be185d" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4"/>
+      <circle cx="0" cy="0" r="75" fill="none" stroke="#db2777" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="0" r="50" fill="#831843" opacity="0.5"/>
+      <path d="M 0 -38 L 28 -24 L 28 10 C 28 28 0 42 0 42 C 0 42 -28 28 -28 10 L -28 -24 Z" fill="#ec4899" filter="url(#shadow)"/>
+      <text x="0" y="10" fill="#fff" font-size="20" font-weight="bold" text-anchor="middle">!</text>
+    </g>
+
+    <!-- Right Side Alert Cards -->
+    <g transform="translate(340, 110)">
+      <rect width="370" height="90" rx="12" fill="#2d081b" stroke="#f43f5e" stroke-width="1.5"/>
+      <circle cx="35" cy="45" r="16" fill="#e11d48"/>
+      <text x="35" y="51" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle">⚠</text>
+      <text x="65" y="38" fill="#fda4af" font-family="'Outfit', sans-serif" font-size="15" font-weight="bold">Phishing Link Detected</text>
+      <text x="65" y="60" fill="#cbd5e1" font-family="'Outfit', sans-serif" font-size="12">Fake electricity bill APK spoofing UPI handle</text>
+      <text x="65" y="76" fill="#f43f5e" font-family="'Fira Code', monospace" font-size="10">Risk Index: 98% (Critical Threat)</text>
+    </g>
+
+    <g transform="translate(340, 215)">
+      <rect width="370" height="90" rx="12" fill="#2d081b" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="35" cy="45" r="16" fill="#059669"/>
+      <text x="35" y="51" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle">✓</text>
+      <text x="65" y="38" fill="#6ee7b7" font-family="'Outfit', sans-serif" font-size="15" font-weight="bold">Legitimate Merchant Verified</text>
+      <text x="65" y="60" fill="#cbd5e1" font-family="'Outfit', sans-serif" font-size="12">VPA validated against NPCI security checksum</text>
+      <text x="65" y="76" fill="#34d399" font-family="'Fira Code', monospace" font-size="10">Safety Score: 100% (Protected)</text>
+    </g>
+
+    <g transform="translate(340, 320)">
+      <rect width="370" height="50" rx="10" fill="#500724"/>
+      <text x="185" y="35" fill="#fbcfe8" font-family="'Outfit', sans-serif" font-size="13" font-weight="bold" text-anchor="middle">🛡️ 1,200+ Scams Blocked &amp; Reported</text>
+    </g>
+  </g>
+</svg>
