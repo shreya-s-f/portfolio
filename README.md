@@ -1,4 +1,4 @@
-# 🌟 Shreya Suresh Fakirapur — Developer Portfolio
+# 🌟  Portfolio
 
 An interactive, animated, high-performance web portfolio for **Shreya Suresh Fakirapur** — Information Science & Engineering Graduate (B.E., CGPA: 8.95/10), Basaveshwar Engineering College, Bagalkot.
 
@@ -71,5 +71,5 @@ An interactive, animated, high-performance web portfolio for **Shreya Suresh Fak
 - **LinkedIn:** [linkedin.com/in/shreya-fakirapur-557388324](https://www.linkedin.com/in/shreya-fakirapur-557388324)
 - **GitHub:** [github.com/shreya-s-f](https://github.com/shreya-s-f)
 - **Email:** [shreyf14@gmail.com](mailto:shreyf14@gmail.com)
-- **Phone / WhatsApp:** [+91 9743994384](https://wa.me/919743994384)
+- **Phone / WhatsApp:** [+91 9449243953](https://wa.me/919449243953)
 - **Location:** Bagalkot, Karnataka, India
