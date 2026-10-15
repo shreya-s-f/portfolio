@@ -370,6 +370,21 @@ function initProjectFilters() {
    8. PROJECT MODALS SYSTEM
    =================================================================== */
 const projectsData = {
+  hotstar: {
+    title: 'Hotstar Application Deployment | CI/CD Pipeline',
+    badge: 'DevOps & CI/CD Pipeline',
+    banner: 'project-images/Hotstar Streaming App Cinematic Showcase.png',
+    desc: 'Built an end-to-end automated Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Hotstar streaming application, integrating GitHub, Maven, Apache Tomcat, and Jenkins using webhooks.',
+    features: [
+      'Built end-to-end CI/CD pipeline integrating GitHub, Maven, Apache Tomcat, and Jenkins using webhooks.',
+      'Automated build and deployment process reducing manual effort and deployment errors.',
+      'Implemented build throttling to control concurrent executions and improve pipeline stability.',
+      'Ensured continuous integration, reliable zero-downtime rollouts, and faster delivery cycles.'
+    ],
+    tags: ['Jenkins', 'CI/CD Pipeline', 'Maven', 'Apache Tomcat', 'GitHub Webhooks', 'AWS Cloud', 'DevOps'],
+    github: 'https://github.com/shreya-s-f/portfolio',
+    demo: null
+  },
   studyclub: {
     title: 'StudyClub — Collaborative Study Web Platform',
     badge: 'AI & Collaborative Workspace',
@@ -636,14 +651,14 @@ function initDevTerminal() {
     help: `Available commands:
 • <span style="color:#a78bfa">about</span>        - Summary of Shreya Fakirapur
 • <span style="color:#a78bfa">skills</span>       - Core tech stack & programming languages
-• <span style="color:#a78bfa">projects</span>     - StudyClub, Food Wastage, Transit, CodeVision & more
+• <span style="color:#a78bfa">projects</span>     - Hotstar CI/CD, StudyClub, Food Wastage, Transit & more
 • <span style="color:#a78bfa">education</span>    - B.E. (CGPA 8.95), PUC (90.16%), SSLC (93.44%)
 • <span style="color:#a78bfa">internship</span>   - Web Development Intern @ YBI Foundation
-• <span style="color:#a78bfa">achievements</span> - WAVE 3.0, Inventra 2K25, EKAIVA & IEEE Volunteering
+• <span style="color:#a78bfa">achievements</span> - IEEE Volunteering, Inventra 2K25, EKAIVA Tech Summit
 • <span style="color:#a78bfa">certifications</span> - ZSkillUp, NPTEL IIT Hyderabad, NPTEL IIT Madras, Infosys
 • <span style="color:#a78bfa">contact</span>      - Direct email, phone, location & socials
 • <span style="color:#a78bfa">resume</span>       - View & inspect full academic resume
-• <span style="color:#a78bfa">socials</span>      - GitHub, LinkedIn, Instagram
+• <span style="color:#a78bfa">socials</span>      - GitHub, LinkedIn, Instagram, WhatsApp
 • <span style="color:#a78bfa">date</span>         - Display current system time
 • <span style="color:#a78bfa">sudo hire</span>    - Unlock secret celebration! 🚀
 • <span style="color:#a78bfa">clear</span>        - Clear terminal screen`,
@@ -652,22 +667,23 @@ function initDevTerminal() {
 🎓 Information Science & Engineering graduate (B.E.) from Basaveshwar Engineering College, Bagalkot (<b>CGPA: 8.95 / 10</b>).
 🚀 Passionate full-stack developer dedicated to building clean, user-centric web applications, robust backends, and AI-powered solutions that solve real-world problems.`,
 
-    skills: `⚡ <b>Technical Capabilities:</b>
-• <b>Frontend:</b> HTML5, CSS3, JavaScript (ES6+), React.js, Responsive UI
-• <b>Backend & DB:</b> MySQL, MongoDB, PHP, Supabase, Apache (XAMPP)
-• <b>Tools:</b> Git, GitHub, VS Code, Leaflet.js
-• <b>Core Concepts:</b> Data Structures, Algorithms, Object-Oriented Programming (OOP), DBMS, OS
-• <b>Soft Skills:</b> Adaptability, Problem Solving, Time Management, Team Collaboration, Communication
-• <b>Languages:</b> Kannada, English, Hindi`,
+    skills: `⚡ <b>Programming Languages & Skills Matrix:</b>
+• <b>Programming Languages:</b> Java (75%), Python (50%)
+• <b>Frontend Development:</b> HTML5 & CSS3 (85%), JavaScript (75%), React.js (60%)
+• <b>Databases & Tools:</b> MySQL (75%), MongoDB (60%), Git & GitHub (80%), VS Code (80%), XAMPP (40%)
+• <b>Core CS & Systems:</b> Linux (80%), Windows (85%), DSA (50%), OOPs (70%), DBMS (70%), Operating Systems (70%)
+• <b>Cloud (AWS) & DevOps:</b> AWS (EC2, S3, VPC, IAM, ELB, Auto Scaling, RDS, CloudFront), DevOps (GitHub, Maven, Apache Tomcat, Jenkins)
+• <b>Soft Skills:</b> Adaptability, Problem Solving, Time Management, Team Collaboration, Communication`,
 
     projects: `🌟 <b>Featured Real-World Projects:</b>
-1. <b>StudyClub</b> — AI-powered collaborative study web platform (React, Supabase, Gemini AI)
-2. <b>Food Wastage Management</b> — Surplus food donation matching system (PHP, MySQL, Apache)
-3. <b>Smart Public Transport Tracker</b> — Real-time transit simulation across 8 cities (Leaflet.js)
-4. <b>CodeVision.ai</b> — AI Code Review Assistant (Project 22UIS717P, BEC Bagalkot ISE)
-5. <b>UPI Scam Alert</b> — Payment fraud detection & security sentinel (Live on Vercel)
-6. <b>JAN-SETU</b> — Smart Civic Issue Reporting & Verification Platform
-7. <b>Rise Association Portal</b> — Departmental student activity & communication hub`,
+1. <b>Hotstar Application Deployment</b> — End-to-end CI/CD Pipeline (Jenkins, Maven, Tomcat, Webhooks)
+2. <b>StudyClub</b> — AI-powered collaborative study web platform (React, Supabase, Gemini AI)
+3. <b>Food Wastage Management</b> — Surplus food donation matching system (PHP, MySQL, Apache)
+4. <b>Smart Public Transport Tracker</b> — Real-time transit simulation across 8 cities (Leaflet.js)
+5. <b>CodeVision.ai</b> — AI Code Review Assistant (Project 22UIS717P, BEC Bagalkot ISE)
+6. <b>UPI Scam Alert</b> — Payment fraud detection & security sentinel (Live on Vercel)
+7. <b>JAN-SETU</b> — Smart Civic Issue Reporting & Verification Platform
+8. <b>Rise Association Portal</b> — Departmental student activity & communication hub`,
 
     education: `🎓 <b>Academic Milestones:</b>
 • <b>B.E. in Information Science & Engineering:</b> Basaveshwar Engineering College, Bagalkot — <b>CGPA: 8.95 / 10</b>
@@ -681,10 +697,9 @@ function initDevTerminal() {
 • <b>Credentials:</b> Verified Offer Letter and Completion Certificate available in Experience section!`,
 
     achievements: `🏆 <b>Hackathons & Activities:</b>
-• <b>WAVE 3.0:</b> 24-Hour National-Level Hackathon @ BEC Bagalkot (March 2026)
+• <b>IEEE Volunteer:</b> BEC-IEEE Technical Events Organizer (April - Dec 2025)
 • <b>Inventra 2K25:</b> Selected for National-Level Hackathon @ KLE Society's College, Chikodi
-• <b>EKAIVA 2025:</b> 8-Hour Hackathon & Agamya Tech Summit @ SDMCET Dharwad
-• <b>Volunteer:</b> BEC-IEEE Technical Events Organizer (April - Dec 2025)`,
+• <b>EKAIVA 2025:</b> 8-Hour Hackathon & Agamya Tech Summit @ SDMCET Dharwad`,
 
     certifications: `📜 <b>Verified Certifications:</b>
 • <b>ZSkillUp:</b> Quantitative Aptitude and Professional Skills (Feb 2026)
@@ -694,14 +709,15 @@ function initDevTerminal() {
 • <b>Udemy:</b> Web Development Mastery`,
 
     contact: `📬 <b>Get In Touch:</b>
-• Email: <a href="mailto:shreyf14@gmail.com" style="color:#38bdf8">shreyf14@gmail.com</a>
-• Phone: <a href="tel:+919743994384" style="color:#34d399">+91 9743994384</a>
-• WhatsApp: <a href="https://wa.me/919743994384" target="_blank" style="color:#22c55e">Chat on WhatsApp</a>
+• Email: <a href="mailto:shreyasureshfakirapur06@gmail.com" style="color:#38bdf8">shreyasureshfakirapur06@gmail.com</a>
+• Phone: <a href="tel:+919449243953" style="color:#34d399">+91 9449243953</a> / <a href="tel:+916360430056" style="color:#38bdf8">+91 6360430056</a>
+• WhatsApp: <a href="https://wa.me/919449243953" target="_blank" style="color:#22c55e">Chat on WhatsApp (9449243953)</a>
 • Location: Bagalkot, Karnataka, India`,
 
     socials: `🌐 <b>Social Channels:</b>
 • GitHub: <a href="https://github.com/shreya-s-f" target="_blank" style="color:#a78bfa">github.com/shreya-s-f</a>
 • LinkedIn: <a href="https://www.linkedin.com/in/shreya-fakirapur-557388324" target="_blank" style="color:#38bdf8">linkedin.com/in/shreya-fakirapur-557388324</a>
+• WhatsApp: <a href="https://wa.me/919449243953" target="_blank" style="color:#22c55e">wa.me/919449243953</a>
 • Instagram: <a href="https://www.instagram.com/shre_154/?hl=en" target="_blank" style="color:#ec4899">@shre_154</a>`,
 
     resume: () => {
