@@ -1,6 +1,6 @@
 # 🌟  Portfolio
 
-An interactive, animated, high-performance web portfolio for **Shreya Suresh Fakirapur** — Information Science & Engineering Graduate (B.E., CGPA: 8.95/10), Basaveshwar Engineering College, Bagalkot.
+An interactive, animated, high-performance web portfolio for **Shreya Fakirapur** — Information Science & Engineering Graduate (B.E., CGPA: 8.95/10), Basaveshwar Engineering College, Bagalkot.
 
 [![GitHub](https://img.shields.io/badge/GitHub-shreya--s--f-181717?style=flat-square&logo=github)](https://github.com/shreya-s-f)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Shreya%20Fakirapur-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/shreya-fakirapur-557388324)
@@ -68,10 +68,10 @@ An interactive, animated, high-performance web portfolio for **Shreya Suresh Fak
 
 ---
 
-## 👩‍💻 Connect With Shreya Suresh Fakirapur
+## 👩‍💻 Connect With Shreya 
 
 - **LinkedIn:** [linkedin.com/in/shreya-fakirapur-557388324](https://www.linkedin.com/in/shreya-fakirapur-557388324)
 - **GitHub:** [github.com/shreya-s-f](https://github.com/shreya-s-f)
-- **Email:** [shreyasureshfakirapur06@gmail.com](mailto:shreyasureshfakirapur06@gmail.com)
-- **Phone / WhatsApp:** [+91 9449243953](https://wa.me/919449243953) / [+91 6360430056](tel:+916360430056)
+- **Email:** [shreyasureshfakirapur06@gmail.com](mailto:shreyf14@gmail.com)
+- **Phone / WhatsApp:** [+91 9449243953](https://wa.me/919449243953) 
 - **Location:** Bagalkot, Karnataka, India
