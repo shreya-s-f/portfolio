@@ -9,32 +9,6 @@ An interactive, animated, high-performance web portfolio for **Shreya Fakirapur*
 
 ---
 
-## ✨ Features & Highlights
-
-- 🌌 **Interactive Particle Constellation Background**: Physics-based HTML5 canvas with dynamic mouse interaction, repulsion, and connection lines.
-- 🔮 **Futuristic Dark Luxury & Glassmorphism Design**: Custom neon glow accents with dynamic real-time theme palette switcher (Cosmic Purple, Electric Cyan, Matrix Emerald, Amber Flare).
-- 🖱️ **Custom Magnetic Glowing Cursor**: Interactive cursor follower with smooth interpolation and reactive scale on interactive elements.
-- ⚡ **Dynamic Typing Hero Headline**: Rotates through core specializations and passions.
-- 💻 **Interactive macOS-Style Developer Terminal**:
-  - Live command terminal allowing visitors to run `help`, `about`, `skills`, `projects`, `education`, `internship`, `achievements`, `certifications`, `resume`, `contact`, `socials`, and the secret `sudo hire 🚀` command!
-  - Clickable quick-command suggestion chips.
-- 🔊 **Synthesized Web Audio Sound Effects**: Pure browser-synthesized audio effects (subtle clicks, keystroke sounds, and celebration chimes) with a one-click mute/unmute toggle.
-- 🎯 **Featured Real-World Projects (Shreya's Repositories)**:
-  - **Hotstar Application Deployment | CI/CD Pipeline**: End-to-end CI/CD pipeline integrating GitHub, Maven, Apache Tomcat, and Jenkins using webhooks with build throttling.
-  - **StudyClub**: AI-powered collaborative learning and productivity platform built with React, Supabase & Google Gemini AI.
-  - **Food Wastage Management System**: Full-stack surplus food donation matching platform built with PHP & MySQL.
-  - **Smart Public Transport Tracker**: Responsive interactive public transit tracking web app across 8 major Indian cities using Leaflet.js.
-  - **CodeVision.ai**: Intelligent AI Code Review Assistant (Project 22UIS717P, BEC Bagalkot ISE).
-  - **UPI Scam Alert**: Web-based cybersecurity payment fraud prevention tool (Live on Vercel).
-  - **JAN-SETU**: Smart civic issue reporting, geotagging, tracking, and citizen verification platform.
-  - **Rise Association Portal**: Association management and activity communication hub.
-- 🖼️ **Interactive Project Details Modal & Certificate Lightbox**: Detailed view of system architecture, technology pills, and high-resolution credentials (including IEEE Volunteer leadership recognition).
-- 📄 **Interactive Resume Modal**: View curriculum vitae directly on-site with print and PDF export support.
-- 📊 **Animated Statistics Counters**: Scroll-triggered milestone counters for academic and engineering excellence.
-- 📬 **Interactive Contact Form & WhatsApp Quick Connect**: Instant validation, confetti explosion via canvas-confetti, and pre-formatted mailto trigger.
-- 📱 **100% Mobile & Desktop Responsive**: Tested across smartphones, tablets, laptops, and ultra-wide displays.
-
----
 
 ## 🛠️ Tech Stack & Skills Matrix
 
