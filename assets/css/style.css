@@ -3469,3 +3469,6 @@ textarea.form-control {
   margin-top: 4px;
 }
 
+
+/* Global Text Justification */
+.project-desc, .intern-doc-desc, .intern-task-desc, .achieve-desc, .cert-issuer-name, .about-text p, .footer-brand-desc, .timeline-card p, .resume-item-desc { text-align: justify; }
