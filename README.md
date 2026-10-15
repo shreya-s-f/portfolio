@@ -5,7 +5,7 @@ An interactive, animated, high-performance web portfolio for **Shreya Fakirapur*
 [![GitHub](https://img.shields.io/badge/GitHub-shreya--s--f-181717?style=flat-square&logo=github)](https://github.com/shreya-s-f)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Shreya%20Fakirapur-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/shreya-fakirapur-557388324)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Chat%20Now-25D366?style=flat-square&logo=whatsapp)](https://wa.me/919449243953)
-[![Email](https://img.shields.io/badge/Email-shreyasureshfakirapur06%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:shreyasureshfakirapur06@gmail.com)
+[![Email](https://img.shields.io/badge/Email-shreyf1406%40gmail.com-EA4335?style=flat-square&logo=gmail)](mailto:shreyf14@gmail.com)
 
 ---
 
