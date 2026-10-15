@@ -1592,10 +1592,10 @@ textarea.form-control {
    FUTURISTIC THREE-COLUMN FOOTER (MATCHING USER SCREENSHOT)
    =================================================================== */
 .footer {
-  background: radial-gradient(circle at 50% 0%, rgba(30, 41, 75, 0.5) 0%, rgba(7, 10, 24, 0.95) 70%), #060814;
+  background: transparent;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 70px 0 30px;
+  border-top: none;
+  padding: 65px 0 30px;
   overflow: hidden;
   z-index: 10;
 }
@@ -1636,15 +1636,15 @@ textarea.form-control {
 .footer-main-grid {
   display: grid;
   grid-template-columns: 1.35fr 0.85fr 1.3fr;
-  gap: 45px;
+  gap: 40px;
   align-items: start;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 992px) {
   .footer-main-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 35px;
+    gap: 32px;
   }
   .footer-col-brand {
     grid-column: 1 / -1;
@@ -1654,7 +1654,7 @@ textarea.form-control {
 @media (max-width: 680px) {
   .footer-main-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 30px;
   }
 }
 
@@ -2301,28 +2301,42 @@ textarea.form-control {
 
 @media (max-width: 768px) {
   .navbar {
-    border-radius: 20px;
-    padding: 12px 20px;
+    width: 95%;
+    padding: 10px 16px;
+    top: 10px;
+    border-radius: 16px;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  .nav-cta {
+    display: none;
   }
   .hamburger-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .nav-links {
     position: fixed;
-    top: 80px;
-    left: 5%;
-    width: 90%;
+    top: 68px;
+    left: 3%;
+    width: 94%;
+    max-height: 80vh;
+    overflow-y: auto;
     background: rgba(10, 14, 28, 0.98);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid var(--border-card);
-    border-radius: 24px;
+    border-radius: 20px;
     flex-direction: column;
-    padding: 24px;
-    gap: 20px;
+    padding: 20px;
+    gap: 16px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-15px);
     transition: all var(--transition-smooth);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
   }
   .nav-links.open {
     opacity: 1;
@@ -2330,33 +2344,37 @@ textarea.form-control {
     transform: translateY(0);
   }
   .timeline::before {
-    left: 20px;
+    left: 18px;
   }
   .timeline-item {
     width: 100%;
-    padding-left: 55px;
-    padding-right: 15px;
+    padding-left: 48px;
+    padding-right: 0;
     text-align: left !important;
   }
   .timeline-item:nth-child(even) {
     left: 0;
   }
   .timeline-dot {
-    left: 11px !important;
+    left: 9px !important;
     right: auto !important;
   }
   .avatar-wrapper {
-    width: 280px;
-    height: 280px;
+    width: clamp(220px, 55vw, 280px);
+    height: clamp(220px, 55vw, 280px);
   }
   .floating-badge {
     display: none;
   }
   .hero-name {
-    font-size: 2.6rem;
+    font-size: clamp(2rem, 6.5vw, 2.7rem);
+    line-height: 1.18;
   }
   .section-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 5vw, 2.3rem);
+  }
+  .section-subtitle {
+    font-size: 0.98rem;
   }
   .projects-grid, .achieve-grid, .certs-grid {
     grid-template-columns: 1fr;
@@ -2364,6 +2382,99 @@ textarea.form-control {
   .internship-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .footer-back-to-top {
+    margin: 5px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-cta-group a,
+  .hero-cta-group button {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-status-pill {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 16px 10px;
+  }
+  .stat-number {
+    font-size: 1.85rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+  }
+  .skills-category-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-category-card {
+    padding: 20px 16px;
+  }
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+  .project-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .proj-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-social-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .footer-social-card {
+    padding: 8px 10px;
+    font-size: 0.84rem;
+  }
+  .footer-resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .floating-whatsapp-btn {
+    bottom: 20px;
+    right: 18px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  .floating-whatsapp-tooltip {
+    display: none;
+  }
+  .modal-dialog {
+    padding: 20px 14px;
+    width: 95%;
+  }
+  .resume-modal-dialog {
+    padding: 18px 12px;
+  }
+  .resume-contact-inline {
+    flex-direction: column;
+    gap: 6px;
   }
 }
 
