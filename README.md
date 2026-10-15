@@ -38,10 +38,10 @@ An interactive, animated, high-performance web portfolio for **Shreya Fakirapur*
 
 ## 🛠️ Tech Stack & Skills Matrix
 
-- **Programming Languages:** Java (75%), Python (50%)
-- **Frontend Development:** HTML5 & CSS3 (85%), JavaScript (75%), React.js (60%)
-- **Databases & Tools:** MySQL (75%), MongoDB (60%), Git & GitHub (80%), VS Code (80%), XAMPP (40%)
-- **Core Computer Science & Systems:** Linux (80%), Windows (85%), DSA (50%), OOPs (70%), DBMS (70%), Operating Systems (70%)
+- **Programming Languages:** Java, Python
+- **Frontend Development:** HTML5 & CSS3, JavaScript, React.js
+- **Databases & Tools:** MySQL, MongoDB, Git & GitHub, VS Code , 
+- **Core Computer Science & Systems:** Linux , Windows, DSA, OOPs , DBMS , Operating Systems 
 - **Cloud (AWS) & DevOps:** AWS Cloud (EC2, S3, VPC, IAM, ELB, Auto Scaling, RDS, CloudFront), DevOps Tools (GitHub, Maven, Apache Tomcat, Jenkins)
 
 ---
