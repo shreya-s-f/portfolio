@@ -382,7 +382,7 @@ const projectsData = {
       'Ensured continuous integration, reliable zero-downtime rollouts, and faster delivery cycles.'
     ],
     tags: ['Jenkins', 'CI/CD Pipeline', 'Maven', 'Apache Tomcat', 'GitHub Webhooks', 'AWS Cloud', 'DevOps'],
-    github: 'https://github.com/shreya-s-f/portfolio',
+    github: 'https://github.com/shreya-s-f/Hotstar-App',
     demo: null
   },
   studyclub: {
@@ -431,7 +431,7 @@ const projectsData = {
     ],
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Leaflet.js', 'GeoJSON', 'Responsive UI'],
     github: 'https://github.com/shreya-s-f/smart-public-transport-tracker',
-    demo: null
+    demo: 'https://smart-public-transport-tracker.vercel.app'
   },
   codevision: {
     title: 'CodeVision.ai — Intelligent AI Code Review Assistant',
@@ -504,14 +504,15 @@ function initProjectModals() {
   const closeBtn = document.getElementById('project-modal-close');
   if (!modalBackdrop) return;
 
-  const detailButtons = document.querySelectorAll('.proj-btn-details');
+  const detailButtons = document.querySelectorAll('[data-project]');
 
   detailButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
       const projKey = btn.getAttribute('data-project');
+      if (!projKey || !projectsData[projKey]) return;
+      e.preventDefault();
+
       const data = projectsData[projKey];
-      if (!data) return;
 
       playSound('click');
 
