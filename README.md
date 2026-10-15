@@ -72,6 +72,6 @@ An interactive, animated, high-performance web portfolio for **Shreya Fakirapur*
 
 - **LinkedIn:** [linkedin.com/in/shreya-fakirapur-557388324](https://www.linkedin.com/in/shreya-fakirapur-557388324)
 - **GitHub:** [github.com/shreya-s-f](https://github.com/shreya-s-f)
-- **Email:** [sjreyf14@gmail.com](mailto:shreyf14@gmail.com)
+- **Email:** [shreyf14@gmail.com](mailto:shreyf14@gmail.com)
 - **Phone / WhatsApp:** [+91 9449243953](https://wa.me/919449243953) 
 - **Location:** Bagalkot, Karnataka, India
