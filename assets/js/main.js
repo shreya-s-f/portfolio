@@ -823,6 +823,46 @@ function getAudioContext() {
 }
 
 function initSoundFX() {
+  const toggleBtn = document.getElementById('sound-toggle');
+
+  // Load saved preference or default to ON
+  const saved = localStorage.getItem('shreya_portfolio_sound');
+  if (saved !== null) {
+    soundEnabled = saved === 'true';
+  } else {
+    soundEnabled = true;
+  }
+
+  function updateSoundIcon() {
+    if (!toggleBtn) return;
+    const icon = toggleBtn.querySelector('i');
+    if (!icon) return;
+    if (soundEnabled) {
+      icon.className = 'fas fa-volume-up';
+      toggleBtn.setAttribute('title', 'Tap Sound: ON (Click to Mute)');
+      toggleBtn.setAttribute('aria-label', 'Mute Tap Sound');
+      toggleBtn.classList.add('sound-active');
+    } else {
+      icon.className = 'fas fa-volume-mute';
+      toggleBtn.setAttribute('title', 'Tap Sound: OFF (Click to Turn On)');
+      toggleBtn.setAttribute('aria-label', 'Turn On Tap Sound');
+      toggleBtn.classList.remove('sound-active');
+    }
+  }
+
+  if (toggleBtn) {
+    updateSoundIcon();
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      soundEnabled = !soundEnabled;
+      localStorage.setItem('shreya_portfolio_sound', soundEnabled);
+      updateSoundIcon();
+      if (soundEnabled) {
+        playSound('click');
+      }
+    });
+  }
+
   // Resume AudioContext on initial user gesture (compliant with modern browser autoplay policies)
   const unlockAudio = () => {
     getAudioContext();
@@ -834,9 +874,9 @@ function initSoundFX() {
   // Attach tap sound to all clickable elements across the portfolio
   document.addEventListener('click', (e) => {
     const target = e.target.closest(
-      'a, button, input[type="button"], input[type="submit"], .term-chip, .filter-btn, .proj-btn, .social-circle, .tab-btn, .floating-control-btn, .intern-doc-card, .timeline-card, [role="button"]'
+      'a, button, input[type="button"], input[type="submit"], .term-chip, .filter-btn, .proj-btn, .social-circle, .tab-btn, .intern-doc-card, .timeline-card, [role="button"]'
     );
-    if (target) {
+    if (target && target.id !== 'sound-toggle') {
       playSound('click');
     }
   }, { passive: true });
@@ -899,16 +939,8 @@ function playSound(type = 'click') {
    =================================================================== */
 function initThemeSwitcher() {
   const themeBtn = document.getElementById('theme-toggle');
-  const floatingThemeBtn = document.getElementById('floating-theme-toggle');
-  const themeTooltip = document.getElementById('theme-tooltip');
 
   const themes = ['default', 'cyan', 'emerald', 'amber'];
-  const themeNames = {
-    'default': 'Cosmic Purple',
-    'cyan': 'Electric Cyan',
-    'emerald': 'Cyber Emerald',
-    'amber': 'Neon Amber'
-  };
   let currentThemeIdx = 0;
 
   function applyTheme(t) {
@@ -916,9 +948,6 @@ function initThemeSwitcher() {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', t);
-    }
-    if (themeTooltip) {
-      themeTooltip.textContent = `Theme: ${themeNames[t] || t}`;
     }
   }
 
@@ -939,7 +968,6 @@ function initThemeSwitcher() {
   }
 
   if (themeBtn) themeBtn.addEventListener('click', cycleTheme);
-  if (floatingThemeBtn) floatingThemeBtn.addEventListener('click', cycleTheme);
 }
 
 /* ===================================================================
