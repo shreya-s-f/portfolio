@@ -803,167 +803,55 @@ Drop an email to <a href="mailto:shreyf14@gmail.com" style="color:#38bdf8">shrey
 }
 
 /* ===================================================================
-   12. WEB AUDIO API SYNTHESIZER SOUND FX & AMBIENT MUSIC
+   12. WEB AUDIO API SYNTHESIZER SOUND FX (TAP SOUND ONLY)
    =================================================================== */
-let soundEnabled = false;
+let soundEnabled = true;
 let audioCtx = null;
-let masterGain = null;
-let ambientNodes = [];
-let ambientTimer = null;
+let lastSoundPlayTime = 0;
 
 function getAudioContext() {
   if (!audioCtx) {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
-    audioCtx = new AudioContext();
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.7, audioCtx.currentTime);
-    masterGain.connect(audioCtx.destination);
+    if (AudioContext) {
+      audioCtx = new AudioContext();
+    }
   }
-  if (audioCtx.state === 'suspended') {
+  if (audioCtx && audioCtx.state === 'suspended') {
     audioCtx.resume();
   }
   return audioCtx;
 }
 
-// Ambient chord progression (Em9 -> Cmaj7 -> D6 -> Gadd9)
-const AMBIENT_CHORDS = [
-  [164.81, 196.00, 246.94, 293.66, 392.00], // Em9
-  [130.81, 164.81, 196.00, 246.94, 329.63], // Cmaj7
-  [146.83, 185.00, 220.00, 293.66, 369.99], // D6
-  [196.00, 246.94, 293.66, 392.00, 440.00]  // Gadd9
-];
-let currentChordIdx = 0;
-
-function playAmbientPad() {
-  if (!soundEnabled || !audioCtx) return;
-
-  const now = audioCtx.currentTime;
-  
-  // Fade out previous chord voices
-  ambientNodes.forEach((node) => {
-    try {
-      node.gain.gain.linearRampToValueAtTime(0.0001, now + 1.8);
-      setTimeout(() => {
-        try { node.osc.stop(); node.osc.disconnect(); } catch (e) {}
-      }, 2000);
-    } catch (e) {}
-  });
-  ambientNodes = [];
-
-  const chord = AMBIENT_CHORDS[currentChordIdx];
-  currentChordIdx = (currentChordIdx + 1) % AMBIENT_CHORDS.length;
-
-  chord.forEach((freq, idx) => {
-    try {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      const filter = audioCtx.createBiquadFilter();
-
-      osc.type = idx % 2 === 0 ? 'sine' : 'triangle';
-      osc.frequency.setValueAtTime(freq, now);
-
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(460 + Math.random() * 100, now);
-
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.linearRampToValueAtTime(0.035 / (chord.length * 0.4), now + 2.5);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(masterGain);
-
-      osc.start(now);
-      ambientNodes.push({ osc, gain });
-    } catch (e) {}
-  });
-
-  ambientTimer = setTimeout(playAmbientPad, 5500);
-}
-
-function startAmbientMusic() {
-  getAudioContext();
-  if (ambientTimer) clearTimeout(ambientTimer);
-  playAmbientPad();
-}
-
-function stopAmbientMusic() {
-  if (ambientTimer) clearTimeout(ambientTimer);
-  if (audioCtx) {
-    const now = audioCtx.currentTime;
-    ambientNodes.forEach((node) => {
-      try {
-        node.gain.gain.linearRampToValueAtTime(0.0001, now + 0.8);
-        setTimeout(() => {
-          try { node.osc.stop(); node.osc.disconnect(); } catch (e) {}
-        }, 900);
-      } catch (e) {}
-    });
-    ambientNodes = [];
-  }
-}
-
 function initSoundFX() {
-  const toggleBtn = document.getElementById('sound-toggle');
-  if (!toggleBtn) return;
-
-  const saved = localStorage.getItem('shreya_portfolio_sound');
-  if (saved !== null) {
-    soundEnabled = saved === 'true';
-    updateSoundIcon(toggleBtn);
-    if (soundEnabled) {
-      // Browsers require a user interaction first to play audio
-      const startOnFirstClick = () => {
-        if (soundEnabled) startAmbientMusic();
-        window.removeEventListener('click', startOnFirstClick);
-      };
-      window.addEventListener('click', startOnFirstClick, { once: true });
-    }
-  }
-
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
+  // Resume AudioContext on initial user gesture (compliant with modern browser autoplay policies)
+  const unlockAudio = () => {
     getAudioContext();
-    soundEnabled = !soundEnabled;
-    localStorage.setItem('shreya_portfolio_sound', soundEnabled);
-    updateSoundIcon(toggleBtn);
+  };
+  ['click', 'touchstart', 'keydown'].forEach((evt) => {
+    document.addEventListener(evt, unlockAudio, { once: true, passive: true });
+  });
 
-    if (soundEnabled) {
-      startAmbientMusic();
+  // Attach tap sound to all clickable elements across the portfolio
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest(
+      'a, button, input[type="button"], input[type="submit"], .term-chip, .filter-btn, .proj-btn, .social-circle, .tab-btn, .floating-control-btn, .intern-doc-card, .timeline-card, [role="button"]'
+    );
+    if (target) {
       playSound('click');
-    } else {
-      stopAmbientMusic();
     }
-  });
-
-  document.querySelectorAll('a, button').forEach((el) => {
-    if (el.id !== 'sound-toggle') {
-      el.addEventListener('click', () => playSound('click'));
-    }
-  });
+  }, { passive: true });
 }
 
-function updateSoundIcon(btn) {
-  const icon = btn.querySelector('i');
-  const tooltip = btn.querySelector('.floating-sound-tooltip');
-  if (!icon) return;
-
-  if (soundEnabled) {
-    icon.className = 'fas fa-volume-up';
-    btn.classList.add('playing');
-    btn.setAttribute('title', 'Mute Sound & Music');
-    if (tooltip) tooltip.textContent = 'Sound: ON (Click to Mute)';
-  } else {
-    icon.className = 'fas fa-volume-mute';
-    btn.classList.remove('playing');
-    btn.setAttribute('title', 'Enable Sound & Ambient Music');
-    if (tooltip) tooltip.textContent = 'Sound: OFF (Click to Play)';
-  }
-}
-
-function playSound(type) {
+function playSound(type = 'click') {
   if (!soundEnabled) return;
+  const nowMs = performance.now();
+  // Prevent duplicate trigger within 40ms from multiple event dispatches
+  if (type === 'click' && nowMs - lastSoundPlayTime < 40) return;
+  lastSoundPlayTime = nowMs;
+
   try {
     const ctx = getAudioContext();
+    if (!ctx) return;
     const now = ctx.currentTime;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -971,35 +859,38 @@ function playSound(type) {
     osc.connect(gain);
     gain.connect(ctx.destination);
 
-    if (type === 'click') {
+    if (type === 'click' || type === 'tap') {
+      // Crisp, tactile UI tap sound
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(750, now);
-      osc.frequency.exponentialRampToValueAtTime(350, now + 0.05);
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.045);
       gain.gain.setValueAtTime(0.06, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
       osc.start(now);
-      osc.stop(now + 0.05);
+      osc.stop(now + 0.045);
     } else if (type === 'type') {
+      // Subtle terminal key click
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(520, now);
-      osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
-      gain.gain.setValueAtTime(0.05, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+      osc.frequency.setValueAtTime(540, now);
+      osc.frequency.exponentialRampToValueAtTime(260, now + 0.035);
+      gain.gain.setValueAtTime(0.035, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
       osc.start(now);
-      osc.stop(now + 0.04);
+      osc.stop(now + 0.035);
     } else if (type === 'success') {
+      // Clean success chime
       osc.type = 'sine';
       osc.frequency.setValueAtTime(440, now);
-      osc.frequency.setValueAtTime(554.37, now + 0.1);
-      osc.frequency.setValueAtTime(659.25, now + 0.2);
-      osc.frequency.setValueAtTime(880, now + 0.3);
-      gain.gain.setValueAtTime(0.09, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+      osc.frequency.setValueAtTime(554.37, now + 0.08);
+      osc.frequency.setValueAtTime(659.25, now + 0.16);
+      osc.frequency.setValueAtTime(880, now + 0.24);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
       osc.start(now);
-      osc.stop(now + 0.55);
+      osc.stop(now + 0.45);
     }
   } catch (err) {
-    // Audio context gracefully handled
+    // Audio context gracefully handled if browser policy restricts audio
   }
 }
 

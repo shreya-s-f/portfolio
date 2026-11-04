@@ -3775,45 +3775,7 @@ textarea.form-control {
   transform: translateY(-3px) scale(1.08) rotate(15deg);
 }
 
-.floating-control-btn.playing {
-  border-color: rgba(245, 158, 11, 0.85);
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.45);
-  color: #f59e0b;
-}
 
-.sound-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sound-wave-bars {
-  display: none;
-  align-items: center;
-  gap: 2.5px;
-  height: 14px;
-  margin-left: 6px;
-}
-
-.floating-control-btn.playing .sound-wave-bars {
-  display: flex;
-}
-
-.sound-wave-bar {
-  width: 2.5px;
-  height: 100%;
-  background-color: #f59e0b;
-  border-radius: 2px;
-  animation: soundBarPulse 1s ease-in-out infinite alternate;
-}
-.sound-wave-bar:nth-child(1) { animation-duration: 0.8s; animation-delay: 0.1s; }
-.sound-wave-bar:nth-child(2) { animation-duration: 1.1s; animation-delay: 0.25s; }
-.sound-wave-bar:nth-child(3) { animation-duration: 0.7s; animation-delay: 0.4s; }
-
-@keyframes soundBarPulse {
-  0% { height: 25%; opacity: 0.4; }
-  100% { height: 100%; opacity: 1; }
-}
 
 .floating-control-tooltip {
   position: absolute;
