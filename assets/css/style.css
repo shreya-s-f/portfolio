@@ -1569,15 +1569,27 @@ textarea.form-control {
   min-height: 130px;
 }
 
+.form-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+  .form-btn-row {
+    flex-direction: column;
+  }
+}
+
 .form-submit-btn {
-  width: 100%;
-  padding: 16px;
+  flex: 1.25;
+  padding: 15px 22px;
   background: linear-gradient(135deg, var(--primary), #7c3aed);
   border: none;
   border-radius: 14px;
   color: #fff;
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1590,6 +1602,102 @@ textarea.form-control {
 .form-submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 38px var(--primary-glow);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-whatsapp-direct-btn {
+  flex: 1;
+  padding: 15px 18px;
+  background: rgba(37, 211, 102, 0.14);
+  border: 1px solid rgba(37, 211, 102, 0.45);
+  border-radius: 14px;
+  color: #25d366;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-smooth);
+}
+
+.form-whatsapp-direct-btn:hover {
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  transform: translateY(-2px);
+}
+
+.form-success-box {
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.form-success-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #34d399;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.form-success-desc {
+  color: #e2e8f0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.form-success-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.success-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-whatsapp-action {
+  background: #25d366;
+  color: #fff;
+}
+
+.btn-whatsapp-action:hover {
+  background: #1eb857;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+.btn-email-action {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn-email-action:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 /* ===================================================================

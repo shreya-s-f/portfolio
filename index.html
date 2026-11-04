@@ -31,6 +31,9 @@
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- EmailJS SDK for Real-Time Email API -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -1483,9 +1486,16 @@
                 <span class="urgent-label-text">Mark as high priority (I will prioritize your message)</span>
               </label>
 
-              <button type="submit" class="form-submit-btn">
-                <span>Send Message 🚀</span>
-              </button>
+              <div class="form-btn-row">
+                <button type="submit" id="submit-btn" class="form-submit-btn">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Send Message 🚀</span>
+                </button>
+                <button type="button" id="whatsapp-direct-btn" class="form-whatsapp-direct-btn" title="Send message directly to Shreya's WhatsApp in real time">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>Send via WhatsApp ⚡</span>
+                </button>
+              </div>
             </form>
           </div>
 

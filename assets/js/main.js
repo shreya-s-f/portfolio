@@ -915,45 +915,162 @@ function initThemeSwitcher() {
 }
 
 /* ===================================================================
-   14. CONTACT FORM & CONFETTI
+/* ===================================================================
+   14. REAL-TIME CONTACT FORM & CONFETTI
+   Supports Real-Time WhatsApp Direct Transmission & Email API
    =================================================================== */
+const EMAILJS_CONFIG = {
+  publicKey: '',    // Add your EmailJS Public Key from https://dashboard.emailjs.com/admin/account
+  serviceId: '',    // Add your EmailJS Service ID (e.g. service_gmail)
+  templateId: '',   // Add your EmailJS Template ID
+  recipientEmail: 'shreyf14@gmail.com',
+  whatsappNumber: '919449243953'
+};
+
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const alertBox = document.getElementById('form-alert');
+  const submitBtn = document.getElementById('submit-btn');
+  const whatsappDirectBtn = document.getElementById('whatsapp-direct-btn');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  // Initialize EmailJS if public key is present and SDK loaded
+  if (window.emailjs && EMAILJS_CONFIG.publicKey) {
+    try {
+      emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+    } catch (err) {
+      console.warn('EmailJS initialization error:', err);
+    }
+  }
+
+  function buildMessageData() {
     const name = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
     const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
     const isUrgent = document.getElementById('urgent-check') && document.getElementById('urgent-check').checked;
     const message = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
+    return { name, email, isUrgent, message };
+  }
+
+  function getWhatsAppUrl(name, email, message, isUrgent) {
+    const priorityText = isUrgent ? '🚨 PRIORITY: High Priority (Urgent)\n' : '⚡ Priority: Standard Inquiry\n';
+    const text = `*New Contact Message from Portfolio*\n----------------------------------\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n${priorityText}📝 *Message:*\n${message}\n----------------------------------\nSent via shreya-s-f.github.io/portfolio`;
+    return `https://api.whatsapp.com/send?phone=${EMAILJS_CONFIG.whatsappNumber}&text=${encodeURIComponent(text)}`;
+  }
+
+  function showSuccessAlert(name, email, message, isUrgent, extraNote = '') {
+    if (!alertBox) return;
+    const waUrl = getWhatsAppUrl(name, email, message, isUrgent);
     const subject = isUrgent ? `URGENT: Portfolio Message from ${name}` : `Portfolio Inquiry from ${name}`;
+    const mailtoUrl = `mailto:${EMAILJS_CONFIG.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Shreya,\n\n${message}\n\nPriority: ${isUrgent ? 'URGENT' : 'Standard'}\nFrom: ${name} (${email})`)}`;
+
+    alertBox.innerHTML = `
+      <div class="form-success-box">
+        <div class="form-success-header">
+          <i class="fas fa-circle-check"></i>
+          <span>Message Dispatched in Real Time!</span>
+        </div>
+        <p class="form-success-desc">
+          Thank you, <b>${escapeHtml(name)}</b>! Your message has been prepared for real-time delivery to Shreya.${extraNote ? ` ${extraNote}` : ''}
+        </p>
+        <div class="form-success-actions">
+          <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="success-action-btn btn-whatsapp-action">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp (Real Time)
+          </a>
+          <a href="${mailtoUrl}" class="success-action-btn btn-email-action">
+            <i class="fas fa-envelope"></i> Open in Email
+          </a>
+        </div>
+      </div>
+    `;
+    alertBox.style.display = 'block';
+    alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // 1. Direct WhatsApp Button Click
+  if (whatsappDirectBtn) {
+    whatsappDirectBtn.addEventListener('click', () => {
+      const { name, email, isUrgent, message } = buildMessageData();
+      if (!name || !email || !message) {
+        if (alertBox) {
+          alertBox.innerHTML = '<div style="color:#ef4444; padding:12px; border-radius:10px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3);"><i class="fas fa-exclamation-circle"></i> Please fill in your Name, Email, and Message first.</div>';
+          alertBox.style.display = 'block';
+        }
+        return;
+      }
+
+      playSound('click');
+      triggerConfetti();
+      const waUrl = getWhatsAppUrl(name, email, message, isUrgent);
+      window.open(waUrl, '_blank');
+      showSuccessAlert(name, email, message, isUrgent, 'A direct real-time chat with Shreya has been opened on WhatsApp.');
+      form.reset();
+    });
+  }
+
+  // 2. Submit Form (Real-Time API + Immediate Dispatch)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const { name, email, isUrgent, message } = buildMessageData();
 
     if (!name || !email || !message) {
       if (alertBox) {
-        alertBox.innerHTML = '<span style="color:#ef4444;"><i class="fas fa-exclamation-circle"></i> Please fill in all required fields.</span>';
+        alertBox.innerHTML = '<div style="color:#ef4444; padding:12px; border-radius:10px; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3);"><i class="fas fa-exclamation-circle"></i> Please fill in all required fields.</div>';
         alertBox.style.display = 'block';
       }
       return;
     }
 
-    triggerConfetti();
-    playSound('success');
-
-    if (alertBox) {
-      const urgentBadge = isUrgent ? '<b style="color:#ef4444;"> [PRIORITIZED AS URGENT]</b>' : '';
-      alertBox.innerHTML = `<span style="color:#10b981;"><i class="fas fa-check-circle"></i> Thank you, <b>${name}</b>! Your message has been prepared.${urgentBadge} Shreya will connect with you shortly.</span>`;
-      alertBox.style.display = 'block';
+    // Set loading state on submit button
+    const origBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending in real time...</span>';
     }
 
-    form.reset();
+    try {
+      let apiSent = false;
 
-    // Mailto fallback
-    setTimeout(() => {
-      window.location.href = `mailto:shreyf14@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Shreya,\n\n${message}\n\nPriority: ${isUrgent ? 'URGENT' : 'Standard'}\nFrom: ${name} (${email})`)}`;
-    }, 1500);
+      // If EmailJS keys configured, send via EmailJS API
+      if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId) {
+        try {
+          await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+            from_name: name,
+            reply_to: email,
+            message: message,
+            priority: isUrgent ? 'URGENT (High Priority)' : 'Standard',
+            to_email: EMAILJS_CONFIG.recipientEmail
+          });
+          apiSent = true;
+        } catch (apiErr) {
+          console.warn('EmailJS transmission note:', apiErr);
+        }
+      }
+
+      triggerConfetti();
+      playSound('success');
+
+      // Trigger instant WhatsApp real-time dispatch in new tab
+      const waUrl = getWhatsAppUrl(name, email, message, isUrgent);
+      window.open(waUrl, '_blank');
+
+      showSuccessAlert(name, email, message, isUrgent, apiSent ? 'Your message was delivered via email API and opened in WhatsApp in real time.' : 'Real-time transmission opened directly to Shreya\'s WhatsApp.');
+      form.reset();
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      const waUrl = getWhatsAppUrl(name, email, message, isUrgent);
+      window.open(waUrl, '_blank');
+      showSuccessAlert(name, email, message, isUrgent);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnHtml;
+      }
+    }
   });
+
+  function escapeHtml(text) {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
 }
 
 function triggerConfetti() {
