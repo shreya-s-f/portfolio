@@ -608,6 +608,12 @@ section {
   position: relative;
 }
 
+.social-circle svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
 .social-circle:hover {
   color: #fff;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
