@@ -945,7 +945,6 @@ function initDevTerminal() {
 • <span style="color:#a78bfa">achievements</span> - IEEE Volunteering, Inventra 2K25, EKAIVA Tech Summit
 • <span style="color:#a78bfa">certifications</span> - ZSkillUp, NPTEL IIT Hyderabad, NPTEL IIT Madras, Infosys
 • <span style="color:#a78bfa">contact</span>      - Direct email, phone, location & socials
-• <span style="color:#a78bfa">resume</span>       - View & inspect full academic resume
 • <span style="color:#a78bfa">socials</span>      - GitHub, LinkedIn, Instagram, WhatsApp
 • <span style="color:#a78bfa">date</span>         - Display current system time
 • <span style="color:#a78bfa">sudo hire</span>    - Unlock secret celebration! 🚀
