@@ -162,7 +162,7 @@ function initCustomCursor() {
   }
   followLoop();
 
-  const hoverTargets = document.querySelectorAll('a, button, input, textarea, .term-chip, .filter-btn, .project-card, .stat-card, .cert-thumb-preview, .achieve-thumb-preview, .intern-doc-thumb-wrap, .floating-sound-btn, .floating-whatsapp-btn');
+  const hoverTargets = document.querySelectorAll('a, button, input, textarea, .term-chip, .filter-btn, .project-card, .stat-card, .cert-thumb-preview, .achieve-thumb-preview, .intern-doc-thumb-wrap, .floating-control-btn, .floating-whatsapp-btn');
   hoverTargets.forEach((el) => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -1008,24 +1008,17 @@ function playSound(type) {
    =================================================================== */
 function initThemeSwitcher() {
   const themeBtn = document.getElementById('theme-toggle');
-  if (!themeBtn) return;
+  const floatingThemeBtn = document.getElementById('floating-theme-toggle');
+  const themeTooltip = document.getElementById('theme-tooltip');
 
   const themes = ['default', 'cyan', 'emerald', 'amber'];
+  const themeNames = {
+    'default': 'Cosmic Purple',
+    'cyan': 'Electric Cyan',
+    'emerald': 'Cyber Emerald',
+    'amber': 'Neon Amber'
+  };
   let currentThemeIdx = 0;
-
-  const saved = localStorage.getItem('shreya_portfolio_theme');
-  if (saved && themes.includes(saved)) {
-    currentThemeIdx = themes.indexOf(saved);
-    applyTheme(saved);
-  }
-
-  themeBtn.addEventListener('click', () => {
-    playSound('click');
-    currentThemeIdx = (currentThemeIdx + 1) % themes.length;
-    const nextTheme = themes[currentThemeIdx];
-    applyTheme(nextTheme);
-    localStorage.setItem('shreya_portfolio_theme', nextTheme);
-  });
 
   function applyTheme(t) {
     if (t === 'default') {
@@ -1033,7 +1026,29 @@ function initThemeSwitcher() {
     } else {
       document.documentElement.setAttribute('data-theme', t);
     }
+    if (themeTooltip) {
+      themeTooltip.textContent = `Theme: ${themeNames[t] || t}`;
+    }
   }
+
+  function cycleTheme() {
+    playSound('click');
+    currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+    const nextTheme = themes[currentThemeIdx];
+    applyTheme(nextTheme);
+    localStorage.setItem('shreya_portfolio_theme', nextTheme);
+  }
+
+  const saved = localStorage.getItem('shreya_portfolio_theme');
+  if (saved && themes.includes(saved)) {
+    currentThemeIdx = themes.indexOf(saved);
+    applyTheme(saved);
+  } else {
+    applyTheme('default');
+  }
+
+  if (themeBtn) themeBtn.addEventListener('click', cycleTheme);
+  if (floatingThemeBtn) floatingThemeBtn.addEventListener('click', cycleTheme);
 }
 
 /* ===================================================================
