@@ -795,7 +795,7 @@ Drop an email to <a href="mailto:shreyf14@gmail.com" style="color:#38bdf8">shrey
 /* ===================================================================
    12. WEB AUDIO API SYNTHESIZER SOUND FX
    =================================================================== */
-let soundEnabled = true;
+let soundEnabled = false;
 let audioCtx = null;
 
 function initSoundFX() {
