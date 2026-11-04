@@ -144,7 +144,7 @@ body.cursor-active .custom-cursor-follower {
   }
 }
 
-/* Background Animated Canvas */
+/* Background Animated 3D Canvas */
 #particles-canvas {
   position: fixed;
   top: 0;
@@ -152,7 +152,7 @@ body.cursor-active .custom-cursor-follower {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* Ambient Background Glow Spheres */

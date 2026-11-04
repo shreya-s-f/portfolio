@@ -7,7 +7,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initParticles();
+  init3DBackground();
   initCustomCursor();
   initTypingEffect();
   initNavbar();
@@ -24,13 +24,348 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ===================================================================
-   1. PARTICLES CONSTELLATION CANVAS
+   1. PROFESSIONAL 3D INTERACTIVE BACKGROUND ENGINE (THREE.JS WEBGL)
+   - Deep 3D Quantum Particle Field with dynamic glowing sprite
+   - Floating 3D Sacred Geometry Core (Icosahedron & Gyro Rings)
+   - Undulating 3D Cyber Horizon Wave Topography
+   - Smooth mouse parallax with inertial damping (lerp)
+   - Cinematic scroll depth parallax
+   - Real-time theme synchronization
+   - High-performance: battery/tab visibility pause & 60+ FPS
    =================================================================== */
-function initParticles() {
+function init3DBackground() {
   const canvas = document.getElementById('particles-canvas');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
 
+  // Graceful fallback to 2D canvas if WebGL or Three.js is unavailable
+  if (typeof THREE === 'undefined') {
+    init2DFallback(canvas);
+    return;
+  }
+
+  let renderer, scene, camera;
+  let starField, geoCore, outerIcosa, innerOcta, ring1, ring2, horizonGrid;
+  let starGeo, gridGeo, originalGridZ = [];
+  let isTabVisible = true;
+  let targetMouseX = 0, targetMouseY = 0;
+  let currentMouseX = 0, currentMouseY = 0;
+  let currentScrollY = 0;
+
+  // Theme palettes in hex
+  const THEME_3D_COLORS = {
+    default: { primary: 0xa78bfa, secondary: 0x06b6d4, wave: 0x8b5cf6, fog: 0x080b18 },
+    cyan:    { primary: 0x06b6d4, secondary: 0x3b82f6, wave: 0x0ea5e9, fog: 0x05131f },
+    emerald: { primary: 0x10b981, secondary: 0x06b6d4, wave: 0x059669, fog: 0x061913 },
+    amber:   { primary: 0xf59e0b, secondary: 0xef4444, wave: 0xd97706, fog: 0x1a1205 }
+  };
+
+  const activeTheme = localStorage.getItem('shreya_portfolio_theme') || 'default';
+  let activePalette = THEME_3D_COLORS[activeTheme] || THEME_3D_COLORS.default;
+
+  try {
+    // 1. Scene & Camera Setup
+    scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(activePalette.fog, 0.0011);
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    camera = new THREE.PerspectiveCamera(55, width / height, 1, 2500);
+    camera.position.set(0, 0, 750);
+
+    // 2. High-Performance WebGL Renderer
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    // 3. Helper: Generate procedural high-res circular glow sprite (no external image load needed)
+    function createGlowPointTexture() {
+      const pCanvas = document.createElement('canvas');
+      pCanvas.width = 64;
+      pCanvas.height = 64;
+      const pCtx = pCanvas.getContext('2d');
+
+      const gradient = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+      gradient.addColorStop(0.2, 'rgba(255, 255, 255, 0.85)');
+      gradient.addColorStop(0.5, 'rgba(167, 139, 250, 0.45)');
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+      pCtx.fillStyle = gradient;
+      pCtx.fillRect(0, 0, 64, 64);
+
+      return new THREE.CanvasTexture(pCanvas);
+    }
+
+    const pointTexture = createGlowPointTexture();
+
+    // 4. Deep 3D Starfield & Particle Cloud
+    const particleCount = 1400;
+    starGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    const cPrimary = new THREE.Color(activePalette.primary);
+    const cSecondary = new THREE.Color(activePalette.secondary);
+
+    for (let i = 0; i < particleCount; i++) {
+      // Wide 3D spatial field
+      positions[i * 3] = (Math.random() - 0.5) * 1900;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 1500;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 1400 - 150;
+
+      const mixRatio = Math.random();
+      const mixedColor = cPrimary.clone().lerp(cSecondary, mixRatio);
+      colors[i * 3] = mixedColor.r;
+      colors[i * 3 + 1] = mixedColor.g;
+      colors[i * 3 + 2] = mixedColor.b;
+    }
+
+    starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    starGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const starMaterial = new THREE.PointsMaterial({
+      size: 16,
+      map: pointTexture,
+      transparent: true,
+      opacity: 0.85,
+      vertexColors: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+
+    starField = new THREE.Points(starGeo, starMaterial);
+    scene.add(starField);
+
+    // 5. Floating 3D Sacred Geometry Core
+    geoCore = new THREE.Group();
+
+    // Outer wireframe Icosahedron
+    const icosaGeo = new THREE.IcosahedronGeometry(110, 1);
+    const icosaMat = new THREE.MeshBasicMaterial({
+      color: activePalette.primary,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.22,
+      blending: THREE.AdditiveBlending
+    });
+    outerIcosa = new THREE.Mesh(icosaGeo, icosaMat);
+    geoCore.add(outerIcosa);
+
+    // Inner wireframe Octahedron
+    const octaGeo = new THREE.OctahedronGeometry(65, 0);
+    const octaMat = new THREE.MeshBasicMaterial({
+      color: activePalette.secondary,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.45,
+      blending: THREE.AdditiveBlending
+    });
+    innerOcta = new THREE.Mesh(octaGeo, octaMat);
+    geoCore.add(innerOcta);
+
+    // Concentric Gyroscopic Rings
+    const ring1Geo = new THREE.TorusGeometry(150, 1.2, 16, 90);
+    const ringMat1 = new THREE.MeshBasicMaterial({
+      color: activePalette.primary,
+      transparent: true,
+      opacity: 0.2,
+      blending: THREE.AdditiveBlending
+    });
+    ring1 = new THREE.Mesh(ring1Geo, ringMat1);
+    ring1.rotation.x = Math.PI / 3;
+    geoCore.add(ring1);
+
+    const ring2Geo = new THREE.TorusGeometry(185, 1.2, 16, 90);
+    const ringMat2 = new THREE.MeshBasicMaterial({
+      color: activePalette.secondary,
+      transparent: true,
+      opacity: 0.15,
+      blending: THREE.AdditiveBlending
+    });
+    ring2 = new THREE.Mesh(ring2Geo, ringMat2);
+    ring2.rotation.y = Math.PI / 4;
+    ring2.rotation.x = -Math.PI / 5;
+    geoCore.add(ring2);
+
+    // Position the 3D core in the ambient hero space
+    if (window.innerWidth < 768) {
+      geoCore.position.set(0, 120, -150);
+      geoCore.scale.set(0.68, 0.68, 0.68);
+    } else {
+      geoCore.position.set(280, 60, -100);
+      geoCore.scale.set(1, 1, 1);
+    }
+    scene.add(geoCore);
+
+    // 6. Undulating 3D Cyber Horizon Wave Topography
+    const gridCols = 46;
+    const gridRows = 46;
+    gridGeo = new THREE.PlaneGeometry(2400, 2000, gridCols, gridRows);
+    gridGeo.rotateX(-Math.PI / 2.25);
+
+    const gridPositions = gridGeo.attributes.position;
+    for (let i = 0; i < gridPositions.count; i++) {
+      originalGridZ.push(gridPositions.getY(i));
+    }
+
+    const gridMat = new THREE.MeshBasicMaterial({
+      color: activePalette.wave,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.12,
+      blending: THREE.AdditiveBlending
+    });
+    horizonGrid = new THREE.Mesh(gridGeo, gridMat);
+    horizonGrid.position.set(0, -320, -250);
+    scene.add(horizonGrid);
+
+    // 7. Interactive Mouse Tracking
+    window.addEventListener('mousemove', (e) => {
+      targetMouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      targetMouseY = (e.clientY / window.innerHeight) * 2 - 1;
+    }, { passive: true });
+
+    // Touch support for mobile parallax
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        targetMouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+        targetMouseY = (e.touches[0].clientY / window.innerHeight) * 2 - 1;
+      }
+    }, { passive: true });
+
+    // Scroll parallax tracking
+    window.addEventListener('scroll', () => {
+      currentScrollY = window.scrollY || window.pageYOffset;
+    }, { passive: true });
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      // Adjust 3D core position on mobile vs desktop
+      if (w < 768) {
+        geoCore.position.set(0, 120, -150);
+        geoCore.scale.set(0.68, 0.68, 0.68);
+      } else {
+        geoCore.position.set(280, 60, -100);
+        geoCore.scale.set(1, 1, 1);
+      }
+    });
+
+    // 8. Tab Visibility Pause (GPU/Battery Saving)
+    const clock = new THREE.Clock();
+
+    document.addEventListener('visibilitychange', () => {
+      isTabVisible = !document.hidden;
+      if (isTabVisible) {
+        clock.start();
+        animate();
+      }
+    });
+
+    // 9. Real-Time Theme Synchronization
+    window.update3DTheme = function (themeKey) {
+      const pal = THEME_3D_COLORS[themeKey] || THEME_3D_COLORS.default;
+      activePalette = pal;
+
+      if (scene && scene.fog) {
+        scene.fog.color.setHex(pal.fog);
+      }
+      if (icosaMat) icosaMat.color.setHex(pal.primary);
+      if (octaMat) octaMat.color.setHex(pal.secondary);
+      if (ringMat1) ringMat1.color.setHex(pal.primary);
+      if (ringMat2) ringMat2.color.setHex(pal.secondary);
+      if (gridMat) gridMat.color.setHex(pal.wave);
+
+      if (starGeo) {
+        const cP = new THREE.Color(pal.primary);
+        const cS = new THREE.Color(pal.secondary);
+        const colAttr = starGeo.attributes.color;
+        for (let i = 0; i < particleCount; i++) {
+          const ratio = (i % 10) / 10;
+          const mix = cP.clone().lerp(cS, ratio);
+          colAttr.setXYZ(i, mix.r, mix.g, mix.b);
+        }
+        colAttr.needsUpdate = true;
+      }
+    };
+
+    // 10. Main 60FPS 3D Animation Loop
+    function animate() {
+      if (!isTabVisible) return;
+      requestAnimationFrame(animate);
+
+      const elapsedTime = clock.getElapsedTime();
+
+      // Smooth camera interpolation (Damped Lerp)
+      currentMouseX += (targetMouseX - currentMouseX) * 0.04;
+      currentMouseY += (targetMouseY - currentMouseY) * 0.04;
+
+      const scrollOffset = currentScrollY * 0.35;
+      camera.position.x = currentMouseX * 120;
+      camera.position.y = -currentMouseY * 85 - (currentScrollY * 0.08);
+      camera.position.z = 750 + (currentMouseY * 60);
+      camera.lookAt(0, -currentScrollY * 0.08, 0);
+
+      // Rotate and animate 3D Sacred Geometry Core
+      if (geoCore) {
+        geoCore.rotation.y = elapsedTime * 0.22;
+        geoCore.rotation.x = elapsedTime * 0.14 + currentMouseY * 0.4;
+        geoCore.rotation.z = Math.sin(elapsedTime * 0.3) * 0.2 + currentMouseX * 0.4;
+
+        // Floating hover sine movement
+        geoCore.position.y = (window.innerWidth < 768 ? 120 : 60) + Math.sin(elapsedTime * 1.5) * 14 - (scrollOffset * 0.2);
+
+        if (outerIcosa) outerIcosa.rotation.y = -elapsedTime * 0.35;
+        if (innerOcta) innerOcta.rotation.x = elapsedTime * 0.45;
+        if (ring1) ring1.rotation.z = elapsedTime * 0.3;
+        if (ring2) ring2.rotation.y = -elapsedTime * 0.25;
+      }
+
+      // Animate 3D Starfield drift
+      if (starField) {
+        starField.rotation.y = elapsedTime * 0.02 + currentMouseX * 0.08;
+        starField.rotation.x = -currentMouseY * 0.06;
+      }
+
+      // Animate 3D Cyber Horizon Wave Plane
+      if (gridGeo) {
+        const pos = gridGeo.attributes.position;
+        for (let i = 0; i < pos.count; i++) {
+          const u = (i % (gridCols + 1));
+          const v = Math.floor(i / (gridCols + 1));
+          const waveZ = Math.sin(elapsedTime * 1.8 + u * 0.35) * 18 +
+                        Math.cos(elapsedTime * 1.4 + v * 0.35) * 18;
+          pos.setY(i, originalGridZ[i] + waveZ);
+        }
+        pos.needsUpdate = true;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  } catch (err) {
+    console.warn('Three.js 3D Background initialization error, switching to fallback canvas:', err);
+    init2DFallback(canvas);
+  }
+}
+
+// 2D Fallback in case of WebGL failure
+function init2DFallback(canvas) {
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
@@ -39,93 +374,35 @@ function initParticles() {
     height = canvas.height = window.innerHeight;
   });
 
-  const mouse = { x: null, y: null, radius: 140 };
-
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-  });
-
-  window.addEventListener('mouseout', () => {
-    mouse.x = null;
-    mouse.y = null;
-  });
-
-  const particleCount = Math.min(Math.floor((width * height) / 12000), 90);
-  const particles = [];
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.size = Math.random() * 2 + 1;
-      this.speedX = (Math.random() - 0.5) * 0.7;
-      this.speedY = (Math.random() - 0.5) * 0.7;
-      this.color = Math.random() > 0.4 ? 'rgba(167, 107, 246, ' : 'rgba(6, 182, 212, ';
-      this.alpha = Math.random() * 0.5 + 0.2;
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      if (this.x > width) this.x = 0;
-      else if (this.x < 0) this.x = width;
-      if (this.y > height) this.y = 0;
-      else if (this.y < 0) this.y = height;
-
-      // Mouse attraction / deflection
-      if (mouse.x !== null && mouse.y !== null) {
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < mouse.radius) {
-          const force = (mouse.radius - dist) / mouse.radius;
-          const angle = Math.atan2(dy, dx);
-          this.x -= Math.cos(angle) * force * 2.5;
-          this.y -= Math.sin(angle) * force * 2.5;
-        }
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + this.alpha + ')';
-      ctx.fill();
-    }
-  }
-
+  const particleCount = 70;
+  const pts = [];
   for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+    pts.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      r: Math.random() * 2 + 1
+    });
   }
 
-  function animate() {
+  function loop() {
     ctx.clearRect(0, 0, width, height);
-
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(167, 107, 246, ${0.16 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.8;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(animate);
+    ctx.fillStyle = 'rgba(167, 139, 250, 0.5)';
+    pts.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(loop);
   }
-
-  animate();
+  loop();
 }
 
 /* ===================================================================
@@ -948,6 +1225,9 @@ function initThemeSwitcher() {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', t);
+    }
+    if (typeof window.update3DTheme === 'function') {
+      window.update3DTheme(t);
     }
   }
 
