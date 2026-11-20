@@ -651,16 +651,16 @@ section {
 .hero-visual {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding-right: 15px;
+  margin-left: 15px;
 }
 
 .avatar-wrapper {
   position: relative;
   width: 440px;
   height: 440px;
-  transform: translateX(25px);
+  transform: translateX(10px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -2722,6 +2722,7 @@ textarea.form-control {
   .hero-visual {
     justify-content: center;
     padding-right: 0;
+    margin-left: 0;
   }
   .avatar-wrapper {
     transform: translateX(0);
