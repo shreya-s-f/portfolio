@@ -443,9 +443,9 @@ section {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 }
 
 .hero-content {
@@ -651,33 +651,42 @@ section {
 .hero-visual {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-right: 15px;
 }
 
 .avatar-wrapper {
   position: relative;
-  width: 360px;
-  height: 360px;
+  width: 440px;
+  height: 440px;
+  transform: translateX(25px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .avatar-glow-ring {
   position: absolute;
-  inset: -14px;
+  inset: -18px;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-  filter: blur(18px);
-  opacity: 0.6;
-  animation: rotateSpin 16s linear infinite;
+  background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), #38bdf8, var(--primary));
+  filter: blur(24px);
+  opacity: 0.72;
+  animation: rotateSpin 16s linear infinite, glowPulse 4.5s ease-in-out infinite alternate;
   z-index: 1;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.6; transform: scale(0.98); }
+  100% { opacity: 0.85; transform: scale(1.03); }
 }
 
 .avatar-orbit {
   position: absolute;
-  inset: -22px;
+  inset: -28px;
   border-radius: 50%;
-  border: 2px dashed rgba(var(--primary-rgb), 0.35);
-  animation: rotateSpinReverse 25s linear infinite;
+  border: 2px dashed rgba(6, 182, 212, 0.45);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+  animation: rotateSpinReverse 28s linear infinite;
   z-index: 1;
 }
 
@@ -694,9 +703,9 @@ section {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  padding: 6px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(var(--primary-rgb), 0.3));
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(var(--primary-rgb), 0.45) 50%, rgba(6, 182, 212, 0.5) 100%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 45px rgba(var(--primary-rgb), 0.35), inset 0 0 15px rgba(255, 255, 255, 0.2);
   z-index: 2;
   overflow: hidden;
 }
@@ -706,57 +715,68 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: contrast(1.04) brightness(1.02);
 }
 
 .avatar-wrapper:hover .avatar-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* Floating Badges around Avatar */
 .floating-badge {
   position: absolute;
-  background: rgba(14, 18, 38, 0.85);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 10px 18px;
+  background: rgba(10, 14, 32, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 11px 20px;
   border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  font-size: 0.88rem;
-  font-weight: 600;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 0, 0, 0.4);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.1px;
   z-index: 4;
   white-space: nowrap;
   animation: floatBadge 5s ease-in-out infinite alternate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.floating-badge:hover {
+  transform: translateY(-4px) scale(1.04) !important;
 }
 
 .floating-badge i {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .badge-1 {
-  top: 15px;
-  left: -35px;
-  border-color: rgba(6, 182, 212, 0.4);
+  top: 25px;
+  left: -48px;
+  border-color: rgba(6, 182, 212, 0.45);
   color: #38bdf8;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(6, 182, 212, 0.25);
   animation-delay: 0s;
 }
 
 .badge-2 {
-  bottom: 25px;
-  right: -30px;
-  border-color: rgba(var(--primary-rgb), 0.4);
+  bottom: 45px;
+  right: -42px;
+  border-color: rgba(var(--primary-rgb), 0.45);
   color: var(--primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(var(--primary-rgb), 0.25);
   animation-delay: -2s;
 }
 
 .badge-3 {
-  bottom: -20px;
-  left: 20px;
-  border-color: rgba(236, 72, 153, 0.4);
+  bottom: -22px;
+  left: 30px;
+  border-color: rgba(236, 72, 153, 0.45);
   color: #f472b6;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 25px rgba(236, 72, 153, 0.25);
   animation-delay: -3.5s;
 }
 
@@ -2699,6 +2719,15 @@ textarea.form-control {
     text-align: center;
     gap: 50px;
   }
+  .hero-visual {
+    justify-content: center;
+    padding-right: 0;
+  }
+  .avatar-wrapper {
+    transform: translateX(0);
+    width: clamp(300px, 42vw, 380px);
+    height: clamp(300px, 42vw, 380px);
+  }
   .hero-name {
     font-size: 3.2rem;
   }
@@ -2784,8 +2813,9 @@ textarea.form-control {
     right: auto !important;
   }
   .avatar-wrapper {
-    width: clamp(220px, 55vw, 280px);
-    height: clamp(220px, 55vw, 280px);
+    transform: translateX(0);
+    width: clamp(230px, 60vw, 290px);
+    height: clamp(230px, 60vw, 290px);
   }
   .floating-badge {
     display: none;
